@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Playball&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="icon" href="/images/logo-removebg-preview.png">
+    <style>
+        html{
+    scroll-behavior: smooth;
+}
+body{
+    font-family: Poppins;
+    background-color: whitesmoke;
+}
+.left{
+    display: flex;
+}
+#img0{
+    width: 0.9cm; height: 1.0cm;
+          margin-left: 0.8cm;  margin-top: 0.4cm;
+}
+#namie{
+    font-family: Playball;  word-spacing: 2px;  margin-top: 0.5cm; 
+    color: rgb(32, 32, 59);   font-weight: bolder;
+}
+.header{
+    display: flex;  width: 1366px;  background-color: white;
+    margin-right: -10px;  margin-top: -10px;  position: fixed; margin-left: -10px;
+}
+.active{
+    height: 10px;  width: 10px;  background-color: rgb(79, 200, 79); 
+    border-radius: 50%; position: absolute; 
+    margin-left: 902px; margin-top: 47px;
+}
+#img1{
+    height: 50px; width: 47px;
+    border-radius: 50%; margin-top: 12px; margin-left: 710px;
+}
+#test{
+    font-weight: 500; font-size: small; color: rgb(148, 148, 148);
+    margin-top: 25px; margin-left: 5px;
+}
+#main_con{
+    display: flex;
+}
+#con1{
+    background-color: white; margin-top: 25px; margin-left: -8px;
+    width: 242px;  height: 700px; position: fixed;
+}
+#img11{
+    height: 50px; width: 47px; border-radius: 50%; margin-top: 18px;
+    margin-left: 25px;
+}
+#testi{
+    color: black; font-weight: 700; font-size: small;
+    margin-left: 80px; margin-top: -45px;
+}
+#ac{
+    font-weight: 500; font-size: small; color: rgba(170, 170, 170, 0.92);
+    margin-left: 85px; margin-top: -43px;
+}
+.sidebar ul{
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    list-style-type: none;
+}
+#img2{
+    height: 20px; width: 22px;
+    margin-left: 70px; margin-bottom: -3px;
+}
+/* #pro{
+    background-color: whitesmoke;
+} */
+#img3{
+    height: 18px; width: 20px;
+    margin-left: 85px; margin-bottom: -2px;
+}
+#img4{
+    height: 17px; width: 22px;
+    margin-left: 65px; 
+}
+#img6{
+    height: 23px; width: 23px;
+    margin-left: 98px; margin-bottom: -6px;
+}
+#sub{
+    color: rgb(32, 32, 59);
+     font-weight: bold; font-size: 16px;
+}
+#mit{
+    height: 35px; width: 200px; margin-top: -15px;
+    border-radius: 5px; margin-right: -10px;
+}
+li a{
+    text-decoration: none; color: black;
+    width: 100px;
+}
+li:hover{
+    color: rgb(32, 32, 59);
+    background-color: whitesmoke; 
+}
+#mit:hover{
+    background-color: rgba(255, 183, 1, 0.603);
+}
+#adm{
+    font-size: 16px;  font-weight: bold;
+    margin-left: 280px; margin-top: -28px;
+}
+#img7{
+    height: 20px; width: 22px; border-radius: 4px;
+    margin-left: 253px; 
+    background-color: rgba(255, 183, 1, 0.924);
+    margin-top: 45px;
+}
+.das{
+    position: fixed;
+}
+.status{
+    display: inline-flex;
+    gap: 25px; margin-left: 320px;
+    margin-top: 80px;
+    position: fixed;
+}
+.book-status{
+    width: 245px;  height: 150px; 
+    border-radius: 8px;  display: grid;
+}
+#bs1{
+    background-image: url(/images/admin_total.PNG);
+    margin-left: -30px;
+}
+#bs2{
+    background-image: url(/images/admin_accepted.PNG);
+}
+#bs3{
+    background-image: url(/images/admin_canceled.PNG);
+}
+#img8{
+    height: 30px; width: 30px;
+    margin-left: 13px; margin-top: 23px;
+}
+#to{
+    color: white; margin-top: 5px;
+    margin-left: 18px; font-size: 17px;
+    font-weight: 500;
+}
+#img9{
+    height: 40px; width: 40px;
+    margin-left: 13px; margin-top: 20px;
+}
+#acc{
+    color: white; margin-top: -4px;
+    margin-left: 13px; font-size: 17px;
+    font-weight: 500;
+}
+#img12{
+    height: 30px; width: 30px;
+    margin-left: -260px; margin-top: 25px;
+}
+#can{
+    color: white; margin-top: 55px;
+    font-size: 17px;  margin-left: -80px;
+    font-weight: 500;
+}
+#z{
+    color: white; margin-top: 78px;
+    font-size: 40px; margin-left: -190px;
+    font-weight: 600;
+}
+#totals{
+    color: white; font-size: 40px;
+    font-weight: 600; margin-left: 10px; margin-top: -20px;
+}
+#accepted{
+    color: white;  font-size: 40px; font-weight: 600;
+    margin-top: -18px; margin-left: 12px;
+}
+.booking-details{
+    width: 1700px;
+    height: fit-content;
+    background-color: #fff;
+    margin-left: 260px;
+    margin-top: 12%;
+    border-radius: 10px;
+    padding: 3%;
+}
+.booking-details table{
+    width: 1700px;
+    /* border-collapse: collapse; */
+    border: 1px solid;
+    color: rgb(32, 32, 59);
+}
+tr td{
+    text-align: center;
+}
+th{
+    height: 70px;
+}
+#bk{
+    margin-top: -15px;
+    color: rgb(32, 32, 59);
+}
+#dsh{
+    background-color: whitesmoke;
+}
+
+    </style>
+</head>
+<body>
+    <form action="/admin/dashboard" method="post">
+    <div class="header">
+        <div class="left" id="left">
+            <img src="/images/logo-removebg-preview.png" alt="" id="img0">
+            <h2 id="namie">Tomi's Kitchen</h2>
+            <div class="active"></div>
+            <img src="/images/Testimony  2.jpg" alt="" id="img1"><h3 id="test">Adebayo Testimony</h3>
+          </div>
+    </div> <br>
+<div id="main_con">
+    <div class="container" id="con1">
+<div id="bio"><img src="/images/Testimony  2.jpg" alt="" id="img11"><h3 id="testi">Adebayo Testimony</h3></div>
+<br><h2 id="ac">Active</h2> 
+   <div class="sidebar">
+    <ul>
+<li id="dsh"><a href="">Dashboard</a>
+    <img src="/images/dashboard.png" alt="" id="img2"></li>
+<li><a href="/admin/dashboard/profile">My Profile</a>
+    <img src="/images/profile_image2.png" alt="" id="img3"></li>
+<li id="pro"><a href="/admin/dashboard/booking" id="books"> All Bookings</a>
+    <img src="/images/chart.png" alt="" id="img4"></li>
+<li><a href="/logout" id="logout">Logout</a>
+    <img src="/images/Power_icon.png" alt="" id="img6"></li> 
+<li><button id="mit"><a href="/admin/dashboard/new_booking" id="sub">Submit New Booking</a></button></li>           
+</ul>   
+</div>
+</div>
+
+<div class="content">
+    <div class="das">
+    <img src="/images/dashboard.png" alt="" id="img7"><header id="adm">Admin Dashboard</header><br>
+   </div>
+    <div class="status">
+<div class="book-status" id="bs1">
+    <img src="/images/total_icon.png" alt="" id="img8">
+    <p id="to">Total Bookings</p>
+    <p id="totals"></p>
+</div>
+<div class="book-status" id="bs2">
+    <img src="/images/accepted.png" alt="" id="img9">
+    <p id="acc">Accepted Bookings</p>
+    <p id="accepted"></p>
+</div>
+<div class="book-status" id="bs3"></div>
+    <img src="/images/cancelled_icon.png" alt="" id="img12"><br>
+    <p id="can">Cancelled Bookings</p>
+    <p id="z">0</p>
+</div><br>
+<div class="booking-details">
+<h3 id="bk">Booking Details</h3>
+<table class="table-data">
+    <tr>
+        <th>First_Name</th>
+        <th>Last_Name</th>
+        <th>Phone_Number</th>
+        <th>Email</th>
+        <th>Booking_Type</th>
+        <th>Table_Location</th>
+        <th>Number_of_People</th>
+        <th>_Date</th>
+        <th>_Time</th>
+        <th>_Until</th>
+        <th>id</th>
+    </tr>
+    <tbody id="mytable">
+
+    </tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+    </form>
+<script>
+    document.querySelector("#logout").addEventListener('click', (e)=>{
+        if(confirm('Do you want to logout?') == true){
+      fetch('/logout', {
+        method: 'get'}
+        )
+    }else{
+        e.preventDefault()
+
+    }})
+
+    document.querySelector("#books").addEventListener("click", (e)=>{
+e.preventDefault()
+fetch('/admin/dashboard/booking')
+.then(res => res.json())
+.then(res => {
+const data = res
+let rows = ''
+data.forEach(data_base => {
+rows += `<tr>
+<td>${data_base.First_Name}</td>
+    <td>${data_base.Last_Name}</td>
+    <td>${data_base.Phone_Number}</td>
+    <td>${data_base.Email}</td>
+    <td>${data_base.Booking_Type}</td>
+    <td>${data_base.Table_Location}</td>
+    <td>${data_base.Number_of_People}</td>
+    <td>${data_base._Date}</td>
+    <td>${data_base._Time}</td>
+    <td>${data_base._Until}</td>
+    <td>${data_base.id}</td>
+</tr>`
+})
+document.getElementById('mytable').innerHTML = rows;
+})
+.catch(error => console.log(error))
+})
+fetch('/admin/dashboard/booking')
+.then(res => res.json())
+.then(res => {
+const data = res
+document.getElementById('totals').innerHTML = data.length
+document.getElementById('accepted').innerHTML = data.length
+
+})
+
+      
+</script>
+</body>
+</html>

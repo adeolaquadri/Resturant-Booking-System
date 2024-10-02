@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Playball&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="icon" href="/images/logo-removebg-preview.png">
+    <style>
+        html{
+    scroll-behavior: smooth;
+}
+body{
+    font-family: Poppins;
+    background-image: url(/images/background\ pro.PNG);
+}
+
+.left{
+    display: flex;
+}
+#img0{
+    width: 0.9cm; height: 1.0cm;
+          margin-left: 1.4cm;  margin-top: 0.3cm;
+padding-left: 40px; 
+        }
+#namie{
+    font-family: Playball;  word-spacing: 5px;  margin-top: 0.4cm; 
+    color: rgb(32, 32, 59);   font-weight: bolder;
+}
+.form{
+    background-color: rgb(233, 233, 233);
+    border-radius: 7px;
+    width: 400px; height: 340px;
+    margin-top: 100px;
+    margin-left: 370px; box-shadow: rgb(146, 146, 146) 7px 5px;
+}
+#ag{
+    color: rgb(32, 32, 59); padding-left: 95px;
+    font-size: 35px; font-weight: bold; margin-top: -25px; 
+    text-shadow: rgba(151, 108, 0, 0.567) 2px 1px;
+}
+#user{
+    margin-left: 70px;    text-shadow: rgba(183, 183, 183, 0.567) 2px 2px;
+    font-size: 25px; font-weight: bold;
+}
+#UserName{
+    margin-top: -60px;
+}
+#usen{
+    margin-left: 25px; 
+    width: 350px;  height: 28px;
+    font-size: 17px;  font-weight: 500;
+    border-radius: 5px;  margin-top: 5px;
+}
+#usen:hover{
+    border-color: rgb(255, 183, 1);
+}
+#user{
+    margin-left: 70px;    text-shadow: rgba(183, 183, 183, 0.567) 2px 2px;
+    font-size: 25px; font-weight: bold;
+}
+#Pass{
+    margin-top: -10px;
+}
+#paso{
+    margin-left: 25px; 
+    width: 350px;  height: 28px;
+    font-size: 17px;  font-weight: 500;
+    border-radius: 5px;  margin-top: 5px;
+}
+#paso:hover{
+    border-color: rgb(255, 183, 1);
+}
+#pasw{
+    margin-left: 73px;    text-shadow: rgba(183, 183, 183, 0.567) 2px 2px;
+    font-size: 25px; font-weight: bold;
+}
+#submit{
+    width: 160px; margin-left: 130px;
+    height: 35px; font-weight: bold;
+    font-size: 25px;
+}
+#submit:hover{
+    background-color: rgba(255, 183, 1, 0.62);
+}
+.sub{
+    margin-top: -17px;
+}
+    </style>
+</head>
+<body>
+    <div class="form">
+       
+        <div class="left" id="left">
+            <img src="/images/logo-removebg-preview.png" alt="" id="img0">
+            <h2 id="namie">Tomi's Kitchen</h2>
+          </div>
+        <h3 id="ag">Admin Login</h3> <br>
+        <form action="/admin/login" method="post">
+        <div id="UserName" ><label for="userNa" id="user">Username:</label><br>
+       <input type="text" placeholder="Enter your Username..."  id="usen" name="username" required> <br><br>
+    </div>
+        <div id="Pass"> <label for="password" id="pasw">Password:</label><br>
+       <input type="password" placeholder="Enter your password..." id="paso" name="password" required> <br><br><br>
+    </div>
+    <div class="sub">
+       <button type="submit" id="submit">Login</button>
+    </div>   
+    </form>
+    </div>
+</body>
+</html>
