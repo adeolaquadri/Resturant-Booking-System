@@ -3,9 +3,219 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Admin Profile</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Playball&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="icon" href="/images/logo-removebg-preview.png">
+    <style>
+body{
+    background-color: whitesmoke;  font-family: Poppins;
+    color:  rgb(32, 32, 59);
+}
+      
+#main_con{
+    display: flex;  gap: 0px;
+}
+#con1{
+    background-color: white; margin-top: -7px; margin-left: -5px;
+    width: 242px;  height: 700px; position: fixed;
+}
+#img11{
+    height: 50px; width: 47px; border-radius: 50%; 
+    margin-top: 5px;  margin-left: 25px;
+}
+#testi{
+    color: black; font-weight: 700; font-size: small;
+    margin-left: 80px; margin-top: -45px;
+}
+#ac{
+    font-weight: 500; font-size: small; color: rgba(170, 170, 170, 0.92);
+    margin-left: 75px; margin-top: -30px;
+}
+.sidebar ul{
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    list-style-type: none;
+}
+#img2{
+    height: 20px; width: 22px;
+    margin-left: 70px; margin-bottom: -3px;
+}
+/* #pro{
+    background-color: whitesmoke;
+} */
+#img3{
+    height: 18px; width: 20px;
+    margin-left: 85px; margin-bottom: -2px;
+}
+#img4{
+    height: 17px; width: 22px;
+    margin-left: 65px; 
+}
+#img6{
+    height: 23px; width: 23px;
+    margin-left: 98px; margin-bottom: -6px;
+}  
+#sub{
+    color: rgb(32, 32, 59);
+     font-weight: bold; font-size: 16px;
+}
+#mit{
+    height: 35px; width: 200px; margin-top: -15px;
+    border-radius: 5px; margin-right: -10px;
+}
+li a{
+    text-decoration: none; color: black;
+    width: 100px;
+}
+li:hover{
+    color: rgb(32, 32, 59);
+    background-color: whitesmoke; 
+}
+#mit:hover{
+    background-color: rgba(255, 183, 1, 0.603);
+}
+#prof{
+    background-color: whitesmoke;
+}
+#con2{
+    background-color: white;   margin-left: 250px;
+    width: 900px;  height: 530px; border-radius: 7px;
+}
+#img7{
+    height: 170px; width: 133px; 
+    padding-top: 25px; padding-left: 30px;
+    margin-bottom: 20px;
+}
+#frs{
+    display: flex;
+}
+#welc{
+    font-size: 30px;  font-weight: 600;
+    margin-left: 28px;  padding-top: 60px;
+}
+#fn{
+    display: flex;
+}
+#fn1{
+    padding-left: 40px;  margin-top: 3px;
+    font-size: 15px; font-weight: 600;
+}
+#fn2{
+    margin-left: 70px; font-weight: 500;
+    font-size: 13px;   margin-top: 3px;
+}
+#ln{
+    display: flex;
+}
+#ln1{
+    padding-left: 40px;  margin-top: 3px;
+    font-size: 15px; font-weight: 600;
+}
+#ln2{
+    margin-left: 70px; font-weight: 500;
+    font-size: 13px;   margin-top: 3px;
+}
+#emal{
+    display: flex;
+}
+#emal1{
+    padding-left: 40px;  margin-top: 3px;
+    font-size: 15px; font-weight: 600;
+}
+#emal2{
+    margin-left: 108px; font-weight: 500;
+    font-size: 13px;   margin-top: 3px;
+}
+#nick{
+    display: flex;
+}
+#nick1{
+    padding-left: 40px;  margin-top: 3px;
+    font-size: 15px; font-weight: 600;
+}
+#nick2{
+    margin-left: 70px; font-weight: 500;
+    font-size: 13px;   margin-top: 3px;
+}
+#rel{
+    display: flex;
+}
+#rel1{
+    padding-left: 40px;  margin-top: 3px;
+    font-size: 15px; font-weight: 600;
+}
+#rel2{
+    margin-left: 91px; font-weight: 500;
+    font-size: 13px;   margin-top: 3px;
+}
+.footer{
+    color:  rgb(32, 32, 59);  height: 21px;
+    background-color: whitesmoke;  padding-left: 12px;
+    margin-top: 65px;  margin-left: 5px;
+    margin-right: 5px;  font-weight: 500;
+}
+    </style>
 </head>
 <body>
-    Heeyyyyy
+    <div id="main_con">
+        <div class="container" id="con1">
+    <div id="bio"><img src="/images/Testimony  2.jpg" alt="" id="img11"><h3 id="testi">Adebayo Testimony</h3></div>
+    <br><h2 id="ac">Active</h2> 
+       <div class="sidebar">
+        <ul>
+    <li id="dsh"><a href="/admin/dashboard">Dashboard</a>
+        <img src="/images/dashboard.png" alt="" id="img2"></li>
+    <li id="prof"><a href="/admin/dashboard/profile">My Profile</a>
+        <img src="/images/profile_image2.png" alt="" id="img3"></li>
+    <li id="pro"><a href="/admin/dashboard/booking" id="books"> All Bookings</a>
+        <img src="/images/chart.png" alt="" id="img4"></li>
+    <li><a href="/logout" id="logout">Logout</a>
+        <img src="/images/Power_icon.png" alt="" id="img6"></li> 
+    <li><button id="mit"><a href="/admin/dashboard/new_booking" id="sub">Submit New Booking</a></button></li>           
+    </ul>   
+    </div>
+    </div> 
+
+    <div id="con2">
+        <div id="frs">
+<img src="/images/Testimony  2.jpg" alt="" id="img7">
+<h1 id="welc">Welcome, Admin</h1>
+</div> <hr style="opacity: 28%;">
+
+    <div id="fn">
+<p id="fn1">First Name:</p>
+<p id="fn2">Adebayo</p>
+    </div>
+
+    <div id="ln">
+<p id="ln1">Last Name:</p>
+<p id="ln2">Testimony</p>
+    </div>
+
+    <div id="emal">
+<p id="emal1">Email:</p>
+<p id="emal2">tesimonyadebayo125@gmail.com</p>
+    </div>    
+   
+    <div id="nick">
+<p id="nick1">Nick Name:</p>
+<p id="nick2">Abba's Favorite</p>
+    </div>
+    
+<div id="rel">
+    <p id="rel1">Religion:</p>
+    <p id="rel2">Christianity</p>
+</div>
+
+<div class="footer">
+    <footer>
+        2024 &copy;</span>
+     Tomi's Kitchen </footer>
+    </div>
+</div>
+</div>
 </body>
 </html>
