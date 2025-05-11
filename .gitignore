@@ -1,5 +1,5 @@
-/node_modules
 /.env
 /book.html
 /payment.js
 verify_payment.js
+/node_modules
