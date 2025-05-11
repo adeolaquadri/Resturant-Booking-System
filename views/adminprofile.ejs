@@ -8,12 +8,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Playball&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <link rel="icon" href="/images/logo-removebg-preview.png">
-    <style>
-body{
-    background-color: whitesmoke;  font-family: Poppins;
-    color:  rgb(32, 32, 59);
-}
-      
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" 
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/style.css">
+    <style>      
 #main_con{
     display: flex;  gap: 0px;
 }
@@ -157,65 +156,66 @@ li:hover{
     margin-top: 65px;  margin-left: 5px;
     margin-right: 5px;  font-weight: 500;
 }
+.myprofile{
+    width: fit-content;
+    height: fit-content;
+    background: #fff;
+    padding: 8px;
+}
     </style>
 </head>
 <body>
-    <div id="main_con">
-        <div class="container" id="con1">
-    <div id="bio"><img src="/images/Testimony  2.jpg" alt="" id="img11"><h3 id="testi">Adebayo Testimony</h3></div>
-    <br><h2 id="ac">Active</h2> 
-       <div class="sidebar">
-        <ul>
-    <li id="dsh"><a href="/admin/dashboard">Dashboard</a>
-        <img src="/images/dashboard.png" alt="" id="img2"></li>
-    <li id="prof"><a href="/admin/dashboard/profile">My Profile</a>
-        <img src="/images/profile_image2.png" alt="" id="img3"></li>
-    <li id="pro"><a href="/admin/dashboard/booking" id="books"> All Bookings</a>
-        <img src="/images/chart.png" alt="" id="img4"></li>
-    <li><a href="/logout" id="logout">Logout</a>
-        <img src="/images/Power_icon.png" alt="" id="img6"></li> 
-    <li><button id="mit"><a href="/admin/dashboard/new_booking" id="sub">Submit New Booking</a></button></li>           
-    </ul>   
-    </div>
-    </div> 
-
-    <div id="con2">
-        <div id="frs">
-<img src="/images/Testimony  2.jpg" alt="" id="img7">
-<h1 id="welc">Welcome, Admin</h1>
-</div> <hr style="opacity: 28%;">
+    <div class="header">
+        <img src="/images/logo-removebg-preview.png" alt="" id="img0"><h2 id="namie">Tomi's Kitchen</h2>
+     </div>
+     <div class="menu-bar">
+        <p style="margin-top: 17px;"><img src="<%=image%>" alt="" id="img11"><h3 id="testi">Adebayo Testimony</h3></p><br><br>
+      <a href="/admin/dashboard"><i class="fa fa-fw fa-dashboard" aria-hidden="true"></i>Dashboard</a><br><br><br>
+      <a href="/admin/profile"><i class="fa fa-fw fa-user" aria-hidden="true"></i>My Profile</a><br><br><br>
+      <a href="/admin/manage_bookings" id="books"><i class="fa fa-fw fa-table" aria-hidden="true"></i>Manage Bookings</a><br><br><br>
+      <a href="/admin/manage_tables" id="books"><i class="fa fa-fw fa-table" aria-hidden="true"></i>Manage Tables</a><br><br><br>
+      <a href="/admin/new_booking"><i class="fa fa-fw fa-calendar" aria-hidden="true"></i>Submit New Booking</a><br><br><br>
+      <a href="/admin/change_password"><i class="fa fa-fw fa-lock"></i>Change Password</a><br><br><br>
+      <a href="/logout" id="logout"><i class="fa fa-fw fa-sign-out" aria-hidden="true"></i>Logout</a><br><br><br>
+ </div>
+<div class="main-content">
+    <div class="myprofile">
+<img src="<%=image%>" alt="" id="img7">
+<h1 id="welc">Welcome, <%=username%></h1>
+<hr style="opacity: 28%;">
 
     <div id="fn">
 <p id="fn1">First Name:</p>
-<p id="fn2">Adebayo</p>
+<p id="fn2"><%=admin[0].firstname%></p>
     </div>
 
     <div id="ln">
 <p id="ln1">Last Name:</p>
-<p id="ln2">Testimony</p>
+<p id="ln2"><%=admin[0].lastname%></p>
     </div>
 
     <div id="emal">
 <p id="emal1">Email:</p>
-<p id="emal2">tesimonyadebayo125@gmail.com</p>
+<p id="emal2"><%=admin[0].email%></p>
     </div>    
    
     <div id="nick">
 <p id="nick1">Nick Name:</p>
-<p id="nick2">Abba's Favorite</p>
+<p id="nick2"><%=admin[0].nickname%></p>
     </div>
     
 <div id="rel">
     <p id="rel1">Religion:</p>
-    <p id="rel2">Christianity</p>
+    <p id="rel2"><%=admin[0].religion%></p>
 </div>
 
+</div>
+</div>
 <div class="footer">
     <footer>
         2024 &copy;</span>
      Tomi's Kitchen </footer>
     </div>
-</div>
 </div>
 </body>
 </html>

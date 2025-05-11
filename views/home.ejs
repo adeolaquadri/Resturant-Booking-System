@@ -9,23 +9,37 @@
     <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Playball&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <link rel="icon" href="/images/logo-removebg-preview.png">
    <style>
-    html{
+html{
     scroll-behavior: smooth;
+}
+*{
+    box-sizing: border-box;
 }
 body{
     font-family: Poppins;
 }
-
-ul li{
-    list-style-type: none;
+ .navbar{
+    width:100%;
+    height: auto;
+    position: sticky;
+    top: 0;
+    left: 0;
+ }
+.navbar a{
+    display: inline-block;
+    justify-content: space-between;
+    margin-top: 0.7cm;
+    padding: 5px 9px 9px 12px;
+    margin-left: 40px;
 }
-.navbar ul{
-    display: flex;   gap: 40px;
-    margin-left: 30%;   margin-top: 0.7cm;
-}
-.navbar ul{
-    display: flex;  gap: 50px;
-    margin-left: 40%;  margin-top: 0.7cm;
+ @media screen and (max-width: 576px){
+    .navbar a {
+        float: none;
+        display: block;
+    }
+    #kop h3{
+      margin-top: 170px;
+ }
 }
 #namie{
     font-family: Playball;
@@ -59,7 +73,7 @@ ul li{
     background-color: rgba(255, 183, 1, 0.376); 
 }
 .house{
-    display: flex;  width: 1366px;  background-color: white;
+    display: flex; flex-wrap: wrap; width: 1366px;  background-color: white;
     margin-right: -6px;  margin-top: -10px;  position: fixed;
 }
 #No5{
@@ -176,24 +190,18 @@ ul li{
 </head>
 <body>
   <section id="body1">
-    <section id="house" class="house"  >
+    <section id="house" class="house">
         <div class="left" id="left">
-          <img src="/images/logo-removebg-preview.png" alt="" id="img0"/>
-          <h2 id="namie">Tomi's Kitchen</h2>
-        </div>
-      
-        <div class="navbar">
-          <ul>
-            <li><a href="home" id="No1">Home</a></li>
-            <li><a href="about" id="No2">About</a></li>
-            <li><a href="contact" id="No3">Contacts</a></li>
-            <li><a href="menu" id="No4">Our Menus</a></li>
-            <li><button id="No5" > <a href="book" id="lin">
-                <img src="/images/menu-removebg-preview.png" alt="" id="menu"> Book A Table</a></button></li>
-             </ul>
-          </ul>
-        </div>
-          </section>
+            <img src="/images/logo-removebg-preview.png" alt="" id="img0"/>
+            <h2 id="namie">Tomi's Kitchen</h2>
+            <div class="navbar">
+                <a href="/" id="No1">Home</a>
+                <a href="/about" id="No2">About</a>
+                <a href="/contact" id="No3">Contacts</a>
+                <a href="/menu" id="No4">Our Menus</a>
+            </div>
+          </div>
+              </section>
 
           <section id="inside">
             <div id="kop">

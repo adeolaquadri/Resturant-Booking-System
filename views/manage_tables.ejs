@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Tables</title>
+    <!-- <link rel="stylesheet" href="/style.css"> -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Playball&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="icon" href="/images/logo-removebg-preview.png">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" 
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@179&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+*{
+   margin: 0;
+   box-sizing: border-box;
+   font-family: Poppins;
+}
+html{
+   scroll-behavior: smooth;
+}
+body{
+   font-family: Poppins;
+   background-color: rgb(204, 204, 204);
+}
+.menu-bar{
+    width: 220px;
+    height: 100%;
+    background-color: #fff;
+    z-index: 1;
+    position: fixed;
+    /* margin-top: 5px; */
+    top: 15;
+    left: 0;
+    transition: 0.5s;
+    padding-top: 5px;
+    overflow-y: scroll;
+}
+.menu-bar a{
+   text-decoration: none;
+    font-size: 14px;
+    color: #000;
+    display: block;
+    padding: 8px 8px 8px 28px;
+    transition: 0.5s;
+}
+.header{
+   width: 100%;
+   height: 70px;
+   background-color: rgb(211, 151, 0);
+   position: sticky;
+   top: 0;
+   display: inline-flex
+}
+.main-content{
+   margin-left: 220px;
+   transition: margin-left .5s;
+   padding: 15px;
+}
+#img0{
+   width: 0.9cm; height: 1.0cm;
+         margin-left: 0.8cm;  margin-top: 0.4cm;
+}
+#namie{
+   font-family: Playball;  word-spacing: 2px;  margin-top: 0.5cm; 
+   color: rgb(32, 32, 59);   font-weight: bolder;
+}
+#test{
+   font-weight: 500; font-size: small; color: rgb(148, 148, 148);
+   margin-top: 25px; margin-left: 5px;
+}
+#testi{
+   color: black; font-weight: 700; font-size: small;
+   margin-left: 80px; margin-top: -45px;
+}
+#con1{
+   background-color: white; margin-top: 25px; margin-left: -8px;
+   width: 242px;  height: 700px; position: fixed;
+}
+#img11{
+   height: 50px; width: 47px; border-radius: 50%; margin-top: 18px;
+   margin-left: 25px;
+}
+        .display-tables{
+         padding: 10px;
+         margin: auto;
+         overflow-x: scroll;
+      }
+        #tables{
+         width: 100%;
+         border-collapse: collapse;
+         font-family: Arial, Helvetica, sans-serif;
+         overflow-x: scroll;
+       }
+      #tables td, #tables th{
+         /* padding: 8px; */
+         text-align: center;
+         border-bottom: 1px solid #ddd;
+      }
+      #tables th{
+         background-color: rgb(211, 151, 0);
+         color: #000;
+         font-size: 14px;
+         text-align: center;
+         padding: 10px;
+         text-transform: capitalize;
+      }
+      #tables td{
+        text-align: center;
+        padding:5px;
+      }
+      #tables td{
+         font-size: 12px;
+         background-color: #f2f2f2;
+      }
+      .deletebtn{
+        border: none;
+        cursor: pointer;
+        background-color: rgb(230, 9, 9);
+        padding: 5px;
+        font-size: 14px;
+        font-family: calibri;
+        border-radius: 2px;
+        width: 70px;
+        /* color: #fff; */
+      }
+      .updatebtn{
+        border: none;
+        cursor: pointer;
+        background-color: rgb(211, 151, 0);
+        padding: 5px;
+        font-size: 14px;
+        font-family: calibri;
+        border-radius: 2px;
+        width: 70px;
+        /* color: #fff; */
+      }
+      .hidden {
+       clip: rect(0 0 0 0);
+       clip-path: inset(50%);
+       height: 1px;
+       overflow: hidden;
+       position: absolute;
+       white-space: nowrap;
+       width: 1px;
+      }
+      .pagination{
+        margin-top: 10px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+      .pagination button{
+        border: none;
+        float: left;
+        padding: 8px 16px;
+        background: transparent;
+        transition: background-color .3s;
+      }
+      .pagination button:hover{
+        background-color: rgb(211, 151, 0);
+      }
+      .innerTable input{
+        outline: none;
+        border: 1px solid #000;
+        width: 250px;
+        padding: 8px;
+        margin-bottom: 10px;
+      }
+      .innerTable input:focus{
+        border: 1px solid rgb(211, 151, 0);
+      }
+      .active{
+        background-color: rgb(211, 151, 0);
+      }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img src="/images/logo-removebg-preview.png" alt="" id="img0"><h2 id="namie">Tomi's Kitchen</h2>
+     </div>
+     <div class="menu-bar">
+      <p style="margin-top: 17px;"><img src="<%=image%>" alt="" id="img11"><h3 id="testi">Adebayo Testimony</h3></p><br><br>
+    <a href="/admin/dashboard"><i class="fa fa-fw fa-dashboard" aria-hidden="true"></i>Dashboard</a><br><br><br>
+    <a href="/admin/profile"><i class="fa fa-fw fa-user" aria-hidden="true"></i>My Profile</a><br><br><br>
+    <a href="/admin/manage_bookings" id="books"><i class="fa fa-fw fa-table" aria-hidden="true"></i>Manage Bookings</a><br><br><br>
+    <a href="/admin/manage_tables" id="books"><i class="fa fa-fw fa-table" aria-hidden="true"></i>Manage Tables</a><br><br><br>
+    <a href="/admin/new_booking"><i class="fa fa-fw fa-calendar" aria-hidden="true"></i>Submit New Booking</a><br><br><br>
+    <a href="/admin/change_password"><i class="fa fa-fw fa-lock"></i>Change Password</a><br><br><br>
+    <a href="/logout" id="logout"><i class="fa fa-fw fa-sign-out" aria-hidden="true"></i>Logout</a><br><br><br>
+</div>
+
+<div class="main-content">
+  <h4>Manage Tables</h4><br>
+  Filter Tables: <input type="text" placeholder="search for table..." id="filterValue" />
+<div class="display-tables">
+<article class="innerTable">
+<table id="tables">
+    <tr>
+        <th>S/N</th>
+        <th>Table_id</th>
+        <th>Table Name</th>
+        <th>Table Location</th>
+        <th>Status</th>
+        <th>Capacity</th>
+        <th>Action</th>
+    </tr>
+    <%for(let i = 1; i < tables.length; i++){%>
+      <%tables.forEach(table => {%>
+         <tr>
+            <td  style="font-size: 14px;"><%=i++%></td>
+            <td style="font-size: 14px; text-transform: lowercase;" data-column="id"><%=table.id%></td>
+            <td contenteditable="true" data-column="tableName" style="font-size: 14px; text-transform: capitalize;"><%=table.table_name%></td>
+            <td contenteditable="true" data-column="tableLocation" style="font-size: 14px; text-transform: capitalize;"><%=table.table_location%></td>
+            <td contenteditable="true" data-column="tableStatus" style="font-size: 14px; text-transform: capitalize;"><%=table.status%></td>
+            <td contenteditable="true" data-column="tableCapacity" style="font-size: 14px; text-transform: capitalize;"><%=table.capacity%></td>
+            <td>
+                <button class="updatebtn">Update<i class="fa fa-edit"></i></button>
+                <button class="deletebtn">Delete<i class="fa fa-trash-o"></i>
+                </button>
+              </td>
+         </tr>
+      <%})%>
+      <%}%>
+</table>
+    <!-- Pagination Controls -->
+      <div class="pagination" id="pagination"></div>
+</article>
+</div>
+</div>
+<script>
+    document.querySelector("#logout").addEventListener('click', (e)=>{
+        if(confirm('Do you want to logout?') == true){
+      fetch('/logout', {
+        method: 'get'}
+        )
+    }else{
+        e.preventDefault()
+
+    }})
+
+//when all documents are fully loaded
+document.addEventListener('DOMContentLoaded', function () {
+  const content = document.querySelector('.innerTable'); 
+  const itemsPerPage = 5;
+  let currentPage = 0;
+  const items = Array.from(content.getElementsByTagName('tr')).slice(1);
+
+  //Show page function
+  function showPage(page) {
+  const startIndex = page * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  items.forEach((item, index) => {
+    item.classList.toggle('hidden', index < startIndex || index >= endIndex);
+  });
+  updateActiveButtonStates();
+}
+
+//Create page buttons function
+function createPageButtons() {
+  const totalPages = Math.ceil(items.length / itemsPerPage);
+  const paginationContainer = document.createElement('div');
+  const paginationDiv = document.body.appendChild(paginationContainer);
+  paginationContainer.classList.add('pagination');
+
+for (let i = 0; i < totalPages; i++) {
+const pageButton = document.createElement('button');
+pageButton.textContent = i + 1;
+pageButton.addEventListener('click', () => {
+  currentPage = i;
+  showPage(currentPage);
+  updateActiveButtonStates();
+})
+content.appendChild(paginationContainer);
+paginationDiv.appendChild(pageButton);
+}
+}
+function updateActiveButtonStates() {
+  const pageButtons = document.querySelectorAll('.pagination button');
+  pageButtons.forEach((button, index) => {
+    if (index === currentPage) {
+      button.classList.add('active');
+    } else {
+      button.classList.remove('active');
+    }
+  })
+}
+createPageButtons();
+showPage(currentPage);
+
+})
+function filtertable(){
+//Get the input field and table
+const filterTable = document.getElementById('filterValue');
+const table = document.getElementById('tables');
+
+//Add event listener for input change
+filterValue.addEventListener('keyup', function(){
+  //Get the value of the input field
+  const filterValue = filterTable.value.toLowerCase();
+  //Get all rows in the table (excluding the header row)
+  const rows = table.getElementsByTagName("tr");
+
+  //Loop through all table rows
+  for(let i = 1; i < rows.length; i++){
+    const cells = rows[i].getElementsByTagName("td");
+    let rowText = '';
+
+  //Loop through each cell in the row (we can choose which column to filter)
+  for(let j = 0; j < cells.length; j++){
+    rowText += cells[j].innerText.toLowerCase();
+  }
+  if(rowText.indexOf(filterValue) > -1){
+    rows[i].style.display = '';
+  }else{
+    rows[i].style.display = 'none'
+  }
+  }
+})
+}
+filtertable();
+
+//when update button is clicked
+document.querySelectorAll('.updatebtn').forEach(button => {
+button.addEventListener('click', function(){
+
+const row = this.closest('tr');
+const data = {
+  id:row.cells[1].innerText,
+  tableName: row.cells[2].innerText,
+  tableLocation: row.cells[3].innerText,
+  tableStatus: row.cells[4].innerText,
+  tableCapacity: row.cells[5].innerText
+};
+if(confirm(`Are sure you want to update table record with id number ${data.id}?`) == true){
+        //Send data to the server
+        updateTable(data);
+      }else{
+       e.preventDefault()
+   }
+})
+})
+
+//when delete button is clicked
+document.querySelectorAll('.deletebtn').forEach(button => {
+  button.addEventListener('click', function(){
+    const row = this.closest('tr');
+    const data = {id:row.cells[1].innerText};
+    if(confirm(`Are sure you want to delete table record with id number ${data.id}?`) == true){
+        //Send data to the server
+        deleteTable(data);
+      }else{
+       e.preventDefault()
+   }
+  })
+})
+//Function to update booking record
+function updateTable(data){
+fetch('/admin/update_table', {
+  method: 'POST',
+  headers:{
+    'Content-Type': 'application/json',
+  },
+  body:JSON.stringify(data)
+})
+.then(response => {response.json();
+  if(response.ok){
+    alert(`Table with id number ${data.id} record updated successfully!`)
+  }else{
+    alert("Unable to update table record!")
+  }
+  })
+}
+//Function to delete booking record
+function deleteTable(data){
+  fetch('/admin/delete_table', {
+    method: 'POST',
+    headers:{
+      'Content-Type': 'application/json'
+    },
+    body:JSON.stringify(data)
+  })
+  .then(response => {
+    response.json();
+    if(response.ok){
+      alert(`Table with the id number ${data.id} has been deleted!`)
+      window.location.href('/admin/manage_booking')
+    }else{
+      alert('Unable to delete table record')
+    }
+  })
+}
+</script>
+</body>
+</html>

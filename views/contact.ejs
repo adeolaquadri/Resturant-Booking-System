@@ -10,21 +10,40 @@
     <link rel="icon" href="/images/logo-removebg-preview.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
-        html{
+html{
     scroll-behavior: smooth;
+}
+*{
+    box-sizing: border-box;
 }
 body{
     font-family: Poppins;
     background-image: url(/images/background\ pro.PNG);
     background-size: cover;
 }
-
-ul li{
-    list-style-type: none;
+.navbar{
+    width:100%;
+    height: auto;
+    position: sticky;
+    top: 0;
+    left: 0;
+ }
+.navbar a{
+    display: inline-block;
+    justify-content: space-between;
+    margin-top: 0.7cm;
+    padding: 5px 9px 9px 12px;
+    margin-left: 40px;
 }
-.navbar ul{
-    display: flex;   gap: 40px;
-    margin-left: 30%;   margin-top: 0.7cm;
+ @media screen and (max-width: 576px){
+    .navbar a {
+        float: none;
+        display: block;
+    }
+    #ime{
+      position: static;
+      margin-top: 350px;
+ }
 }
 #No1{
     color:  rgb(32, 32, 59);  text-decoration: none;  font-weight: bold; 
@@ -54,14 +73,16 @@ ul li{
 #No4:hover{
     background-color: rgba(255, 183, 1, 0.376); 
 }
+#No5{
+    color: rgb(32, 32, 59);  text-decoration: none; 
+    font-weight: bold;  font-size: 15px;
+}
+#No5:hover{
+    background-color: rgba(255, 183, 1, 0.376); 
+}
 #house{
     display: flex;  width: 1366px;  background-color: white;
     margin-right: -6px;  margin-top: -10px;  position: fixed;
-}
-#No5{
-    text-decoration: none;  font-weight: bold; font-size: 13px; 
-    background-color: rgba(255, 183, 1, 0.376);  text-decoration: none;
-    width: 160px;  margin-top: 2px;  display: flex;
 }
 #lin{
     color: rgb(32, 32, 59);   text-decoration: none;
@@ -129,15 +150,13 @@ margin-left: 450px;  font-weight: bold;  font-family: Poppins;
     </div>
   
     <div class="navbar">
-      <ul>
-        <li><a href="home" id="No1">Home</a></li>
-        <li><a href="about" id="No2">About</a></li>
-        <li><a href="contact" id="No3">Contacts</a></li>
-        <li><a href="menu" id="No4">Our Menus</a></li>
-        <li><button id="No5" > <a href="book" id="lin"><img src="/images/menu-removebg-preview.png" alt="" id="menu"> Book A Table</a></button></li>
-         </ul>
-      </ul>
-    </div>
+        <div class="navbar">
+            <a href="/" id="No1">Home</a>
+            <a href="/about" id="No2">About</a>
+            <a href="/contact" id="No3">Contacts</a>
+            <a href="/menu" id="No4">Our Menus</a>
+            <a href="/book" id="No5" >Book A Table</a>
+        </div> 
       </section>
 <br>
 <p id="cont">Contact Us</p>

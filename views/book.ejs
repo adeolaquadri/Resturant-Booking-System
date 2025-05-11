@@ -11,23 +11,48 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   
     <style>
-        html{
+html{
     scroll-behavior: smooth;
+}
+*{
+    box-sizing: border-box;
+    /* margin: 0; */
 }
 body{
     font-family: Poppins;
 }
-
-ul li{
-    list-style-type: none;
+.navbar{
+    width:100%;
+    height: auto;
+    position: sticky;
+    top: 0;
+    left: 0;
+ }
+.navbar a{
+    display: inline-block;
+    justify-content: space-between;
+    margin-top: 0.7cm;
+    padding: 5px 9px 9px 12px;
+    margin-left: 40px;
 }
-.navbar ul{
-    display: flex;   gap: 40px;
-    margin-left: 30%;   margin-top: 0.7cm;
-}
-.navbar ul{
-    display: flex;  gap: 50px;
-    margin-left: 40%;  margin-top: 0.7cm;
+ @media screen and (max-width: 576px){
+    .navbar a {
+        float: none;
+        display: block;
+    }
+    #ba{
+      margin-top: 300px;
+      text-align: center;
+    }
+    #pngbk{
+        display: none;
+    }
+    .form{
+        margin: auto;
+    }
+    #wetr, #bing{
+        text-align: center;
+    }
 }
 #namie{
     font-family: Playball;
@@ -60,15 +85,20 @@ ul li{
 #No4:hover{
     background-color: rgba(255, 183, 1, 0.376); 
 }
+#No5{
+    color: rgb(32, 32, 59);  text-decoration: none; 
+    font-weight: bold;  font-size: 15px;
+    background-color: rgba(255, 183, 1, 0.376); 
+}
 .house{
     display: flex;  width: 1366px;  background-color: white;
     margin-right: -6px;  margin-top: -10px;  position: fixed;
 }
-#No5{
+/* #No5{
     text-decoration: none;  font-weight: bold; font-size: 13px; 
     background-color: rgba(255, 183, 1, 0.376);  text-decoration: none;
     width: 160px;  margin-top: 2px;  display: flex;
-}
+} */
 #lin{
     color: rgb(32, 32, 59);   text-decoration: none;
     margin-top: -13px;  margin-bottom: 9px;
@@ -92,9 +122,9 @@ ul li{
     margin-top: 90px;  height: 380px;  width: 390px;
     margin-left: 50px;  margin-bottom: 360px;
 }
-#pngbk{
+/* #pngbk{
     display: flex;  height: 950px;
-}
+} */
 #ba{
     color:  rgb(32, 32, 59);  font-size: 30px;  font-weight: bolder;
     margin-left: 460px;  font-family: Poppins;  font-style: italic;
@@ -110,7 +140,9 @@ ul li{
     font-weight: bold;
 }
 .form{
-    margin-left: 90px;  color:  rgb(32, 32, 59);
+    margin: auto;
+    height: fit-content;
+    width: fit-content;
 }
 #bof{
     color:  rgb(32, 32, 59);  margin-left: 15px;
@@ -188,7 +220,7 @@ ul li{
 #tegr{
     font-size: 18px;  font-weight: bold;
 }
-#pac{
+#pac, #menu{
     width: 359px;  height: 30px;
     font-size: 17px;  font-weight: 500;
     border-radius: 5px;  margin-top: 8px;
@@ -196,10 +228,10 @@ ul li{
 #pac:hover{
     border-color: rgb(255, 183, 1);
 }
-#cate{
+#cate, #menus{
     margin-top: -13px;
 }
-#no{
+#guests{
     width: 350px;  height: 28px;
     font-size: 17px;  font-weight: 500;
     border-radius: 5px;  margin-top: 5px;
@@ -235,7 +267,7 @@ ul li{
 #tm:hover{
     border-color: rgb(255, 183, 1);
 }
-#time{
+#time, #forMenu{
     font-size: 18px;  font-weight: bold;
     margin-top: 15px;
 }
@@ -273,28 +305,25 @@ ul li{
         <div class="left" id="left">
           <img src="/images/logo-removebg-preview.png" alt="" id="img0">
           <h2 id="namie">Tomi's Kitchen</h2>
+          <div class="navbar">
+            <a href="/" id="No1">Home</a>
+            <a href="/about" id="No2">About</a>
+            <a href="/contact" id="No3">Contacts</a>
+            <a href="/menu" id="No4">Our Menus</a>
+            <a href="/book" id="No5">Book A Table</a>
         </div>
-      
-        <div class="navbar">
-          <ul>
-            <li><a href="home" id="No1">Home</a></li>
-            <li><a href="about" id="No2">About</a></li>
-            <li><a href="contact" id="No3">Contacts</a></li>
-            <li><a href="menu" id="No4">Our Menus</a></li>
-            <li><button id="No5" > <a href="book" id="lin"><img src="/images/menu-removebg-preview.png" alt="" id="menu"> Book A Table</a></button></li>
-             </ul>
-          </ul>
         </div>
           </section> <br><br> <br>
+
+          <!-- <div id="pngbk">
+<img src="/images/booking image11.png" alt="" id="img1"> -->
+
+<div class="form">
 <p id="ba">Book A Table</p>
 <p id="wetr">Whether it's for lunch date night, a birthday celebration, or after-work dinner and drinks, let us make your occasion special.</p>
 <p id="bing">Bringing Children with you? Make sure you include them when selecting the number of guests dining.</p>
 
-          <div id="pngbk">
-<img src="/images/booking image11.png" alt="" id="img1">
-
-<div class="form">
-  <form id="bookingForm" action = "/book" method="post">
+  <!-- <form id="bookingForm" method="post" action="/pay"> -->
 <p id="bof">Booking Form</p> 
 <label for="Fname" id="Fname">First Name</label><br>
 <input type ="text" name="fname" placeholder="Firstname" id="Firstname" required><br>
@@ -312,20 +341,20 @@ ul li{
   <label for="bkty" id="BookTy">Booking Type</label><br>
   <select name="bookType" id="bkty" required>
       <option value="" disabled selected>Select Booking Type</option>
-      <option value="lunch">Lunch Menu</option>
-      <option value="christmas">Christmas 2024</option>
-      <option value="dinner">Dinner Menu</option>
-      <option value="date">Date Night</option>
-      <option value="meet">Business Meeting</option>
+      <option value="Lunch">Lunch Menu</option>
+      <option value="Christmas">Christmas</option>
+      <option value="Dinner">Dinner Menu</option>
+      <option value="Date">Date Night</option>
+      <option value="Meeting">Business Meeting</option>
       <option value="Family Dinner">Family Dinner</option>
       <option value="Friends">Friends' Night Out</option>
       <option value="Proposal">Proposal Dinner</option>
-      <option value="conference">Conference Dinner</option>
-      <option value="reunion">Reunion</option>
-      <option value="wedding">Wedding Reception</option>
-      <option value="night-out">Couples' Night Out</option>
-      <option value="client">Client Meeting</option>
-      <option value="graduation">Graduation Menu</option>
+      <option value="Conference">Conference Dinner</option>
+      <option value="Reunion">Reunion</option>
+      <option value="Wedding">Wedding Reception</option>
+      <option value="Night-out">Couples' Night Out</option>
+      <option value="Client">Client Meeting</option>
+      <option value="Graduation">Graduation Menu</option>
   </select><br><br>
 </div>
 
@@ -333,26 +362,15 @@ ul li{
   <label for="pac" id="tegr">Table Location</label><br>
     <select name="location" id="pac" required>
         <option value="" disabled selected>Select Table Location</option>
-        <option value="window">Window Table</option>
-        <option value="booth">Booth</option>
-        <option value="vip">VIP Table</option>
-        <option value="quiet">Quiet Corner</option>
-        <option value="center">Center Table</option>
-        <option value="outdoor">Outdoor Table</option>
-        <option value="rooftop">Rooftop Seating</option>
-        <option value="lounge">Lounge Seating</option>
-        <option value="bar">Bar Table</option>
-        <option value="private">Private Dining Room</option>
-        <option value="kitchen">Near Kitchen</option>
-        <option value="communal">Communal Table</option>
-        <option value="high-top">High-Top Table</option>
-        <option value="courtyard">Courtyard Table</option>
-        <option value="balcony">Balcony Table</option>
-    </select><br><br>
+        <%tables.forEach(table => {%>    
+        <option value="<%=table.table_location%>" 
+            style="text-transform: capitalize;"><%=table.table_name%>- capacity(<%=table.capacity%>)</option>
+    <%})%>
+</select><br><br>
   </div>
 <div id="numb">
-  <label for="num" id="numbr">Number of People</label><br>
-  <input type ="number" name="numPeople" placeholder="Num. Of People" id="no" required min="1"><br>  
+  <label for="num" id="numbr">Number of Guests</label><br>
+  <input type ="number" name="numPeople" placeholder="Number of Guests" id="guests" required min="1"><br>  
 </div>
 <div id="dat">
   <label for="date" id="date">Date</label><br>
@@ -366,9 +384,67 @@ ul li{
   <label for="time" id="utl">Until</label><br>
   <input type="time" name="until" placeholder="" id="ut"><br>  
 </div>
-<input type="submit" id="Submit">
-  </form>
+<div class="menus">
+    <label for="menu" id="forMenu">Select Menu:</label><br>
+    <select id="menu">
+        <%menu.forEach(tableMenu => {%>
+      <option value="<%=tableMenu.price%>" id="menuType"><%=tableMenu.type%></option>
+      <%})%>
+    </select>
+    <p>Total Amount: NGN <span id="amount">0</span></p>
+  
 </div>
+<button id="Submit">Book Now</button>
+  <!-- </form> -->
+</div>
+<script>
+  document.getElementById("guests").addEventListener("input", updateAmount);
+  document.getElementById("menu").addEventListener("change", updateAmount);
 
+  
+  function updateAmount() {
+    const guests = document.getElementById("guests").value || 1;
+    const menuPrice = document.getElementById("menu").value;
+    const total = guests * menuPrice;
+    document.getElementById("amount").innerText = total;
+  }
+
+   document.querySelector("#Submit").addEventListener('click', async () => {
+    let Fname = document.querySelector("#Firstname").value
+    let Lname = document.querySelector("#Lastname").value
+    let Email = document.querySelector("#Email").value
+    let Phone = document.querySelector("#Number").value
+    let BookType = document.querySelector("#bkty").value
+    let Location = document.querySelector("#pac").value
+    let Date = document.querySelector("#dt").value
+    let Time = document.querySelector("#tm").value
+    let Until = document.querySelector("#ut").value
+    let Amount = document.querySelector("#amount").innerText
+    let Guests = document.querySelector("#guests").value
+
+    
+    let mydata =
+        {
+         fname:Fname,
+         lname:Lname, 
+         email:Email, 
+         phone:Phone,
+         amount: Amount,
+         bookType:BookType,
+         location:Location, 
+         date:Date, 
+         time:Time, 
+         until:Until,
+         guests:Guests,
+        }
+      const response = await fetch('/pay', {
+        method: 'POST',
+        headers: { 'Content-Type':'application/json' },
+        body: JSON.stringify(mydata)
+      });
+      const data = await response.json();
+      window.location.href = data.authorization_url; // Redirect to Paystack's payment page
+    });
+</script>
 </body>
 </html>

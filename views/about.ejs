@@ -9,23 +9,38 @@
     <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Playball&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <link rel="icon" href="/images/logo-removebg-preview.png">
     <style>
-        html{
+*{
+    box-sizing: border-box;
+}
+html{
     scroll-behavior: smooth;
 }
 body{
     font-family: Poppins;
 }
-
-ul li{
-    list-style-type: none;
+.navbar{
+    width:100%;
+    height: auto;
+    position: sticky;
+    top: 0;
+    left: 0;
+ }
+.navbar a{
+    display: inline-block;
+    justify-content: space-between;
+    margin-top: 0.7cm;
+    padding: 5px 9px 9px 12px;
+    margin-left: 40px;
 }
-.navbar ul{
-    display: flex;   gap: 40px;
-    margin-left: 30%;   margin-top: 0.7cm;
-}
-.navbar ul{
-    display: flex;  gap: 50px;
-    margin-left: 40%;  margin-top: 0.7cm;
+ @media screen and (max-width: 576px){
+    .navbar a {
+        float: none;
+        display: block;
+    }
+    #ime{
+      position: static;
+      margin-top: 350px;
+ }
 }
 #namie{
     font-family: Playball;
@@ -59,16 +74,23 @@ ul li{
 #No4:hover{
     background-color: rgba(255, 183, 1, 0.376); 
 }
+#No5{
+    color: rgb(32, 32, 59);  text-decoration: none; 
+    font-weight: bold;  font-size: 15px;
+}
+#No5:hover{
+    background-color: rgba(255, 183, 1, 0.376); 
+}
 .house{
     display: flex;  width: 1366px;  background-color: white;
     margin-right: -6px;  margin-top: 10px;  position: fixed;
 margin-left: -10px;
 }
-#No5{
+/* #No5{
     text-decoration: none;  font-weight: bold; font-size: 13px; 
     background-color: rgba(255, 183, 1, 0.376);  text-decoration: none;
     width: 160px;  margin-top: 2px;  display: flex;
-}
+} */
 #lin{
     color: rgb(32, 32, 59);   text-decoration: none;
     margin-top: -13px;  margin-bottom: 9px;
@@ -162,14 +184,11 @@ font-size: 10px;  font-weight: 20px;  width: 268px;
         </div>
       
         <div class="navbar">
-          <ul>
-            <li><a href="home" id="No1">Home</a></li>
-            <li><a href="about" id="No2">About</a></li>
-            <li><a href="contact" id="No3">Contacts</a></li>
-            <li><a href="menu" id="No4">Our Menus</a></li>
-            <li><button id="No5" > <a href="book" id="lin"><img src="/images/menu-removebg-preview.png" alt="" id="menu"> Book A Table</a></button></li>
-             </ul>
-          </ul>
+            <a href="/" id="No1">Home</a>
+            <a href="/about" id="No2">About</a>
+            <a href="/contact" id="No3">Contacts</a>
+            <a href="/menu" id="No4">Our Menus</a>
+            <a href="/book" id="No5">Book A Table</a>
         </div>
           </section>
           <div id="ime">
@@ -195,11 +214,11 @@ font-size: 10px;  font-weight: 20px;  width: 268px;
 <div id="coj">
 <h3 id="eio">We care about the health and well-being of our customers</h3>
 <ul id="lit">
-  <li><span id="custom-bullet">*</span>Fresh ingredients and Products</li><br>
-  <li><span id="custom-bullet">*</span>Professionals & Skilled Chefs</li><br>
-  <li><span id="custom-bullet">*</span>Best Offers and Low Cost Services</li><br>
-  <li><span id="custom-bullet">*</span>Vegan Cuisines</li><br>
-  <li><span id="custom-bullet">*</span>Online Booking System</li>
+  <span id="custom-bullet">*</span>Fresh ingredients and Products<br>
+  <span id="custom-bullet">*</span>Professionals & Skilled Chefs<br>
+  <span id="custom-bullet">*</span>Best Offers and Low Cost Services<br>
+  <span id="custom-bullet">*</span>Vegan Cuisines<br>
+  <span id="custom-bullet">*</span>Online Booking System
 </ul>
 </div>
     </section> <br>
