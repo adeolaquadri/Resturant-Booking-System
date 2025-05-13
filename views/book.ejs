@@ -1,345 +1,154 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Book A Table</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Playball&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-    <link rel="icon" href="/images/logo-removebg-preview.png">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  
-    <style>
-html{
-    scroll-behavior: smooth;
-}
-*{
-    box-sizing: border-box;
-    /* margin: 0; */
-}
-body{
-    font-family: Poppins;
-}
-.navbar{
-    width:100%;
-    height: auto;
-    position: sticky;
-    top: 0;
-    left: 0;
- }
-.navbar a{
-    display: inline-block;
-    justify-content: space-between;
-    margin-top: 0.7cm;
-    padding: 5px 9px 9px 12px;
-    margin-left: 40px;
-}
- @media screen and (max-width: 576px){
-    .navbar a {
-        float: none;
-        display: block;
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Book A Table</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playball&family=Poppins:wght@300;500&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
-    #ba{
-      margin-top: 300px;
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #ffb703;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    #ba {
+      background-color: #fff;
+      padding: 30px 20px;
+      border-radius: 20px;
+      max-width: 700px;
+      width: 90%;
+      margin: 100px auto;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #namie {
       text-align: center;
+      font-size: 2rem;
+      font-family: 'Playball', cursive;
+      color: #fb8500;
+      margin-bottom: 20px;
     }
-    #pngbk{
-        display: none;
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
     }
-    .form{
-        margin: auto;
+
+    label {
+      font-weight: 500;
+      margin-bottom: 5px;
     }
-    #wetr, #bing{
-        text-align: center;
+
+    input, select {
+      padding: 10px;
+      border: 2px solid #fb8500;
+      border-radius: 10px;
+      outline: none;
+      font-size: 1rem;
+      width: 100%;
     }
-}
-#namie{
-    font-family: Playball;
-}
-#No1{
-    color:  rgb(32, 32, 59);  text-decoration: none;  font-weight: bold; 
-    font-size: 15px;  
-}
-#No1:hover{
-    background-color: rgba(255, 183, 1, 0.376); 
-}
-#No2{
-    color: rgb(32, 32, 59);  text-decoration: none; 
-    font-weight: bold;  font-size: 15px;
-}
-#No2:hover{
-    background-color: rgba(255, 183, 1, 0.376); 
-}
-#No3{
-    color: rgb(32, 32, 59);  text-decoration: none; 
-    font-weight: bold;  font-size: 15px; 
-}
-#No3:hover{
-    background-color: rgba(255, 183, 1, 0.376); 
-}
-#No4{
-    color: rgb(32, 32, 59);  text-decoration: none; 
-    font-weight: bold;  font-size: 15px;
-}
-#No4:hover{
-    background-color: rgba(255, 183, 1, 0.376); 
-}
-#No5{
-    color: rgb(32, 32, 59);  text-decoration: none; 
-    font-weight: bold;  font-size: 15px;
-    background-color: rgba(255, 183, 1, 0.376); 
-}
-.house{
-    display: flex;  width: 1366px;  background-color: white;
-    margin-right: -6px;  margin-top: -10px;  position: fixed;
-}
-/* #No5{
-    text-decoration: none;  font-weight: bold; font-size: 13px; 
-    background-color: rgba(255, 183, 1, 0.376);  text-decoration: none;
-    width: 160px;  margin-top: 2px;  display: flex;
-} */
-#lin{
-    color: rgb(32, 32, 59);   text-decoration: none;
-    margin-top: -13px;  margin-bottom: 9px;
-}
-.left{
-    display: flex;
-}
-#img0{
-    width: 0.9cm; height: 1.0cm;
-          margin-left: 1.2cm;  margin-top: 0.7cm;
-}
-#namie{
-    font-family: Playball;  word-spacing: 5px;  margin-top: 0.8cm; 
-    color: rgb(32, 32, 59);   font-weight: bolder;
-}
-#menu{
-    height: 20px;  width: 30px;  margin-top: 15px;
-    margin-left: 5px;  margin-bottom: -2px;
-}
-#img1{
-    margin-top: 90px;  height: 380px;  width: 390px;
-    margin-left: 50px;  margin-bottom: 360px;
-}
-/* #pngbk{
-    display: flex;  height: 950px;
-} */
-#ba{
-    color:  rgb(32, 32, 59);  font-size: 30px;  font-weight: bolder;
-    margin-left: 460px;  font-family: Poppins;  font-style: italic;
-}
-#wetr{
-    margin-top: -19px;  margin-left: 180px;
-    font-size: 13px; color:  rgb(32, 32, 59);
-    font-weight: bold;
-}
-#bing{
-    margin-top: -9px;  margin-left: 250px;
-    font-size: 13px;  color:  rgb(32, 32, 59);
-    font-weight: bold;
-}
-.form{
-    margin: auto;
-    height: fit-content;
-    width: fit-content;
-}
-#bof{
-    color:  rgb(32, 32, 59);  margin-left: 15px;
-    text-decoration: underline;  word-spacing: 5px;
-    font-weight: bolder;  margin-bottom: 0px;
-    font-size: 20px;
-}
-#Firstname{
-    width: 350px;  height: 28px;
-    font-size: 17px;  font-weight: 500;
-    border-radius: 5px;  margin-top: 5px;
-}
-#Firstname:hover{
-    border-color: rgb(255, 183, 1);
-}
-#Fname{
-    font-size: 18px;  font-weight: bold;
-}
-#Lastname{
-    width: 350px;  height: 28px;
-    font-size: 17px;  font-weight: 500;
-    border-radius: 5px;  margin-top: 5px;
-}
-#Lastname:hover{
-    border-color: rgb(255, 183, 1);
-}
-#Lname{
-    font-size: 18px;  font-weight: bold;
-}
-#Ln{
-    margin-top: 10px;
-}
-#Number{
-    width: 350px;  height: 28px;
-    font-size: 17px;  font-weight: 500;
-    border-radius: 5px;  margin-top: 5px;
-}
-#Number:hover{
-    border-color: rgb(255, 183, 1);
-}
-#PhNo{
-    font-size: 18px;  font-weight: bold;
-}
-#PN{
-    margin-top: -12px;
-}
-#Email{
-    width: 350px;  height: 28px;
-    font-size: 17px;  font-weight: 500;
-    border-radius: 5px;  margin-top: 5px;
-}
-#Email:hover{
-    border-color: rgb(255, 183, 1);
-}
-#mail{
-    font-size: 18px;  font-weight: bold;
-}
-#mil{
-    margin-top: -12px;
-}
-#BookTy{
-    font-size: 18px;  font-weight: bold;
-}
-#bkty{
-    width: 359px;  height: 30px;
-    font-size: 17px;  font-weight: 500;
-    border-radius: 5px;  margin-top: 8px;
-}
-#bkty:hover{
-    border-color: rgb(255, 183, 1);
-}
-#typo{
-    margin-top: -15px;
-}
-#tegr{
-    font-size: 18px;  font-weight: bold;
-}
-#pac, #menu{
-    width: 359px;  height: 30px;
-    font-size: 17px;  font-weight: 500;
-    border-radius: 5px;  margin-top: 8px;
-}
-#pac:hover{
-    border-color: rgb(255, 183, 1);
-}
-#cate, #menus{
-    margin-top: -13px;
-}
-#guests{
-    width: 350px;  height: 28px;
-    font-size: 17px;  font-weight: 500;
-    border-radius: 5px;  margin-top: 5px;
-}
-#no:hover{
-    border-color: rgb(255, 183, 1);
-}
-#numbr{
-    font-size: 18px;  font-weight: bold;
-}
-#numb{
-    margin-top: -13px;
-}
-#dt{
-    width: 355px;  height: 28px;
-    font-size: 17px;  font-weight: 500;
-    border-radius: 5px;  margin-top: 5px;
-}
-#dt:hover{
-    border-color: rgb(255, 183, 1);
-}
-#date{
-    font-size: 18px;  font-weight: bold;
-}
-#dat{
-    margin-top: 10px;
-}
-#tm{
-    width: 355px;  height: 28px;
-    font-size: 17px;  font-weight: 500;
-    border-radius: 5px;  margin-top: 7px;
-}
-#tm:hover{
-    border-color: rgb(255, 183, 1);
-}
-#time, #forMenu{
-    font-size: 18px;  font-weight: bold;
-    margin-top: 15px;
-}
-#tim{
-    margin-top: 12px;
-}
-#ut{
-    width: 355px;  height: 28px;
-    font-size: 17px;  font-weight: 500;
-    border-radius: 5px;  margin-top: 7px;
-}
-#ut:hover{
-    border-color: rgb(255, 183, 1);
-}
-#utl{
-    font-size: 18px;  font-weight: bold;
-    margin-top: 15px;
-}
-#uti{
-    margin-top: 12px;
-}
-#Submit{
-    width: 160px;  background-color: white;
-    height: 30px;  font-weight: 600;
-    font-size: 20px;  margin-left: 80px;
-    margin-top: 20px;  border-radius: 5px;
-}
-#Submit:hover{
-    background-color: rgba(255, 183, 1, 0.62);
-}
-    </style>
+
+    input:focus, select:focus {
+      border-color: #ffb703;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .form-row {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .form-row .form-group {
+      flex: 1;
+      min-width: 140px;
+    }
+
+    .submit-button {
+      background-color: #fb8500;
+      color: #fff;
+      border: none;
+      padding: 12px;
+      font-size: 1rem;
+      font-weight: 500;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .submit-button:hover {
+      background-color: #e07c00;
+    }
+
+    #pngbk {
+      display: none;
+    }
+
+    @media (min-width: 768px) {
+      #ba {
+        padding: 40px;
+      }
+
+      #pngbk {
+        display: block;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        max-width: 150px;
+      }
+    }
+  </style>
 </head>
 <body>
-    <section id="house" class="house"  >
-        <div class="left" id="left">
-          <img src="/images/logo-removebg-preview.png" alt="" id="img0">
-          <h2 id="namie">Tomi's Kitchen</h2>
-          <div class="navbar">
-            <a href="/" id="No1">Home</a>
-            <a href="/about" id="No2">About</a>
-            <a href="/contact" id="No3">Contacts</a>
-            <a href="/menu" id="No4">Our Menus</a>
-            <a href="/book" id="No5">Book A Table</a>
+
+  <div id="pngbk">
+    <img src="images/book.png" alt="Book a Table Illustration" />
+  </div>
+
+  <section id="ba">
+    <h2 id="namie">Book A Table</h2>
+
+    <form id="bookingForm" method="post" action="/pay">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="Firstname">First Name</label>
+          <input type="text" name="fname" id="Firstname" required />
         </div>
+        <div class="form-group">
+          <label for="Lastname">Last Name</label>
+          <input type="text" name="lname" id="Lastname" required />
         </div>
-          </section> <br><br> <br>
+      </div>
 
-          <!-- <div id="pngbk">
-<img src="/images/booking image11.png" alt="" id="img1"> -->
+      <div class="form-row">
+        <div class="form-group">
+          <label for="Phone">Phone</label>
+          <input type="tel" name="phone" id="Phone" required />
+        </div>
+        <div class="form-group">
+          <label for="Email">Email</label>
+          <input type="email" name="email" id="Email" required />
+        </div>
+      </div>
 
-<div class="form">
-<p id="ba">Book A Table</p>
-<p id="wetr">Whether it's for lunch date night, a birthday celebration, or after-work dinner and drinks, let us make your occasion special.</p>
-<p id="bing">Bringing Children with you? Make sure you include them when selecting the number of guests dining.</p>
-
-  <!-- <form id="bookingForm" method="post" action="/pay"> -->
-<p id="bof">Booking Form</p> 
-<label for="Fname" id="Fname">First Name</label><br>
-<input type ="text" name="fname" placeholder="Firstname" id="Firstname" required><br>
-
-<div id="Ln"><label for="Lname" id="Lname">Last Name</label><br>
-<input type="text" name="lname" placeholder="Lastname" id="Lastname" required> </div><br>
-
-<div id="PN"><label for="Phone Number" id="PhNo">Phone Number</label><br>
-<input type ="tel" name="phone" placeholder="080********" id="Number" required> </div><br>
-
-<div id="mil"><label for="email" id="mail">Email</label><br>
-<input type="text" name="email" placeholder="example@gmail.com" id="Email" required></div><br>
-
-<div id="typo">
-  <label for="bkty" id="BookTy">Booking Type</label><br>
-  <select name="bookType" id="bkty" required>
+      <div class="form-row">
+        <div class="form-group">
+        <label for="bookType">Booking Type</label>
+        <select name="bookType" id="bkty" required>
       <option value="" disabled selected>Select Booking Type</option>
       <option value="Lunch">Lunch Menu</option>
       <option value="Christmas">Christmas</option>
@@ -355,48 +164,60 @@ body{
       <option value="Night-out">Couples' Night Out</option>
       <option value="Client">Client Meeting</option>
       <option value="Graduation">Graduation Menu</option>
-  </select><br><br>
-</div>
-
-<div id="cate">
-  <label for="pac" id="tegr">Table Location</label><br>
-    <select name="location" id="pac" required>
+  </select>
+        </div>
+        <div class="form-group">
+        <label for="pac" id="tegr">Table Location</label>
+       <select name="location" id="tl" required>
         <option value="" disabled selected>Select Table Location</option>
         <%tables.forEach(table => {%>    
         <option value="<%=table.table_location%>" 
             style="text-transform: capitalize;"><%=table.table_name%>- capacity(<%=table.capacity%>)</option>
     <%})%>
-</select><br><br>
-  </div>
-<div id="numb">
-  <label for="num" id="numbr">Number of Guests</label><br>
-  <input type ="number" name="numPeople" placeholder="Number of Guests" id="guests" required min="1"><br>  
-</div>
-<div id="dat">
-  <label for="date" id="date">Date</label><br>
-  <input type="date" name="date" placeholder="" id="dt" required><br>  
-</div>
-<div id="tim">
-  <label for="time" id="time">Time</label><br>
-  <input type="time" name="time" placeholder="" id="tm" ><br>  
-</div>
-<div id="uti">
-  <label for="time" id="utl">Until</label><br>
-  <input type="time" name="until" placeholder="" id="ut"><br>  
-</div>
-<div class="menus">
-    <label for="menu" id="forMenu">Select Menu:</label><br>
+</select>
+        </div>
+
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="Guests">Number of Guests</label>
+  <input type ="number" name="numPeople" placeholder="Number of Guests" id="guests" required min="1">
+        </div>
+
+        <div class="form-group">
+          <label for="Date">Date</label>
+          <input type="date" name="date" id="Date" required />
+        </div>
+      </div>
+
+      <div class="form-row">
+      <div class="form-group">
+        <label for="Time">Time</label>
+        <input type="time" name="time" id="Time" required />
+      </div>
+
+      <div class="form-group">
+        <label for="Until">Until</label>
+        <input type="time" name="until" id="Until" required />
+      </div>
+
+      </div>
+
+      <div class="form-group">
+    <label for="menu" id="forMenu">Select Menu:</label>
     <select id="menu">
         <%menu.forEach(tableMenu => {%>
       <option value="<%=tableMenu.price%>" id="menuType"><%=tableMenu.type%></option>
       <%})%>
     </select>
     <p>Total Amount: NGN <span id="amount">0</span></p>
-  
-</div>
-<button id="Submit">Book Now</button>
-  <!-- </form> -->
-</div>
+      </div>
+
+      <button type="submit" class="submit-button">Book Now</button>
+    </form>
+  </section>
+
 <script>
   document.getElementById("guests").addEventListener("input", updateAmount);
   document.getElementById("menu").addEventListener("change", updateAmount);
@@ -415,7 +236,7 @@ body{
     let Email = document.querySelector("#Email").value
     let Phone = document.querySelector("#Number").value
     let BookType = document.querySelector("#bkty").value
-    let Location = document.querySelector("#pac").value
+    let Location = document.querySelector("#tl").value
     let Date = document.querySelector("#dt").value
     let Time = document.querySelector("#tm").value
     let Until = document.querySelector("#ut").value
