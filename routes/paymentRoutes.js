@@ -2,14 +2,16 @@ const express = require('express');
 const axios = require('axios');
 const mysqlConnection = require('../db/connection');
 const router = express.Router();
+const dotenv = require('dotenv');
+dotenv.config();
 
 const PAYSTACK_SECRET_KEY = process.env.PAYSTACK_SECRET_KEY;
 
 // Payment Route
 router.post("/pay", async (req, res) => {
   try {
-    const { email, lname, fname, amount, bookType, location, phone, guests, date, time, until} = req.body;
-    console.log(email, fname, amount, phone)
+    const { email, amount, lname, fname, bookType, location, phone, guests, date, time, until} = req.body;
+    console.log(email, fname, amount, phone);
     const bookingid = {id:'tsk'+Date.now().toString(10)}
     const booking_status = 'Pending'
 
@@ -59,7 +61,7 @@ router.get("/verify", async (req, res) => {
     );
 
     if (response.data.data.status === "success") {
-      mysqlConnection.query(`UPDATE booking SET status = 'Approved' WHERE reference = '${reference}'`, (err) => {
+      mysqlConnection.query(`UPDATE booking SET status = 'Approved' WHERE reference = ?`, [reference], (err) => {
         if (err) throw err;
       });
 
@@ -77,7 +79,7 @@ router.get("/verify", async (req, res) => {
         </html>
       `);
     } else {
-      mysqlConnection.query(`UPDATE booking SET status = 'Canceled' WHERE reference = '${reference}'`, (err) => {
+      mysqlConnection.query(`UPDATE booking SET status = 'Canceled' WHERE reference = ?`, [reference], (err) => {
         if (err) throw err;
       });
 

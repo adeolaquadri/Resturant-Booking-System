@@ -14,7 +14,7 @@
 
     body {
       font-family: 'Poppins', sans-serif;
-      background-color: #ffb703;
+      background-color: #e6d3a5;
       display: flex;
       flex-direction: column;
       min-height: 100vh;
@@ -116,13 +116,12 @@
 <body>
 
   <div id="pngbk">
-    <img src="images/book.png" alt="Book a Table Illustration" />
+    <img src="images/logo-removebg-preview.png" height="80" alt="Book a Table Illustration" />
   </div>
 
   <section id="ba">
     <h2 id="namie">Book A Table</h2>
 
-    <form id="bookingForm" method="post" action="/pay">
       <div class="form-row">
         <div class="form-group">
           <label for="Firstname">First Name</label>
@@ -214,8 +213,7 @@
     <p>Total Amount: NGN <span id="amount">0</span></p>
       </div>
 
-      <button type="submit" class="submit-button">Book Now</button>
-    </form>
+      <button id="Submit" class="submit-button">Book Now</button>
   </section>
 
 <script>
@@ -228,29 +226,30 @@
     const menuPrice = document.getElementById("menu").value;
     const total = guests * menuPrice;
     document.getElementById("amount").innerText = total;
+    //  console.log(`Amount: ${ document.querySelector("#amount").innerText}`);
+
   }
-
-   document.querySelector("#Submit").addEventListener('click', async () => {
-    let Fname = document.querySelector("#Firstname").value
-    let Lname = document.querySelector("#Lastname").value
-    let Email = document.querySelector("#Email").value
-    let Phone = document.querySelector("#Number").value
-    let BookType = document.querySelector("#bkty").value
-    let Location = document.querySelector("#tl").value
-    let Date = document.querySelector("#dt").value
-    let Time = document.querySelector("#tm").value
-    let Until = document.querySelector("#ut").value
-    let Amount = document.querySelector("#amount").innerText
-    let Guests = document.querySelector("#guests").value
-
+     
+   document.querySelector("#Submit").addEventListener('click', async (e) => {
+    e.preventDefault();
+    let Fname = document.querySelector("#Firstname").value;
+    let Lname = document.querySelector("#Lastname").value;
+    let Email = document.querySelector("#Email").value;
+    let Phone = document.querySelector("#Phone").value;
+    let BookType = document.querySelector("#bkty").value;
+    let Location = document.querySelector("#tl").value;
+    let Date = document.querySelector("#Date").value;
+    let Time = document.querySelector("#Time").value;
+    let Until = document.querySelector("#Until").value;
+    let Amount = document.querySelector("#amount").innerText;
+    let Guests = document.querySelector("#guests").value;
     
-    let mydata =
-        {
+    let mydata =    {
          fname:Fname,
          lname:Lname, 
          email:Email, 
          phone:Phone,
-         amount: Amount,
+         amount:Amount,
          bookType:BookType,
          location:Location, 
          date:Date, 
@@ -258,6 +257,7 @@
          until:Until,
          guests:Guests,
         }
+        console.log(mydata)
       const response = await fetch('/pay', {
         method: 'POST',
         headers: { 'Content-Type':'application/json' },
