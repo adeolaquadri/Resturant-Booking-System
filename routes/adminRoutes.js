@@ -110,28 +110,25 @@ router.get('/change_password', (req ,res)=>{
     }
 })
 //PUT: Admin change password
-router.put('/change_password', async(req, res)=>{
+router.put('/change_password',(req, res)=>{
     try{
         if(!req.cookies.jwt) return res.status(401).json({success: false, message: 'Unauthourized Access!'})
         const verify = jwt.verify(req.cookies.jwt, process.env.secret_key)
         const {oldpassword, newpassword, confirmpassword} = req.body;
-        mysqlConnection.query('SELECT password from admin WHERE email = ?', [verify.email], async(err, pass)=>{
+        mysqlConnection.query('SELECT password from admin WHERE email = ?', [verify.email], (err, pass)=>{
         if(err) throw err;
-        const isValidPassword = await bcrypt.compare(pass[0].password, oldpassword)
-        if(isValidPassword){
+        const isValidPassword =  bcrypt.compareSync(oldpassword, pass[0].password)
+        console.log(oldpassword)
+        console.log(isValidPassword)
+        if(!isValidPassword) return res.status(401).json({success: false, message: "Invalid Password"});
+        if(confirmpassword !== newpassword)  return res.status(401).json({success: false, message: "Passwords do not match"});
 
-        if(confirmpassword !== newpassword) 
-        return res.status(401).json({success: false, message: "Passwords do not match"});
-
-        const password = await bcrypt.hash(newpassword, 10)
+        const password = bcrypt.hashSync(newpassword, 10)
         mysqlConnection.query('UPDATE admin SET password = ? where email = ? ', [password, verify.email], (err)=>{
         if(err) return res.status(500).json({success: false, message: "Error updating password"});
         return res.status(200).json({success: true, message: "Password updated successfully"});
 
         });
-        }else{
-            return res.status(401).json({success: false, message: "Invalid Password"});
-        }
     })
     }catch(e){
        return res.status(500).json({success: false, message: "Error updating password"});

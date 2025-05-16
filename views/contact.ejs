@@ -1,182 +1,213 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact Us...</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Playball&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-    <link rel="icon" href="/images/logo-removebg-preview.png">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <style>
-html{
-    scroll-behavior: smooth;
-}
-*{
-    box-sizing: border-box;
-}
-body{
-    font-family: Poppins;
-    background-image: url(/images/background\ pro.PNG);
-    background-size: cover;
-}
-.navbar{
-    width:100%;
-    height: auto;
-    position: sticky;
-    top: 0;
-    left: 0;
- }
-.navbar a{
-    display: inline-block;
-    justify-content: space-between;
-    margin-top: 0.7cm;
-    padding: 5px 9px 9px 12px;
-    margin-left: 40px;
-}
- @media screen and (max-width: 576px){
-    .navbar a {
-        float: none;
-        display: block;
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Us | Tomi's Kitchen</title>
+
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Playball&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet"/>
+  <link rel="icon" href="/images/logo-removebg-preview.png" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"/>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
-    #ime{
-      position: static;
-      margin-top: 350px;
- }
-}
-#No1{
-    color:  rgb(32, 32, 59);  text-decoration: none;  font-weight: bold; 
-    font-size: 15px;  
-}
-#No1:hover{
-    background-color: rgba(255, 183, 1, 0.376); 
-}
-#No2{
-    color: rgb(32, 32, 59);  text-decoration: none; 
-    font-weight: bold;  font-size: 15px;
-}
-#No2:hover{
-    background-color: rgba(255, 183, 1, 0.376); 
-}
-#No3{
-    color: rgb(32, 32, 59);  text-decoration: none; 
-    font-weight: bold;  font-size: 15px; background-color: rgba(255, 183, 1, 0.376)
-}
-#No3:hover{
-    background-color: rgba(255, 183, 1, 0.376); 
-}
-#No4{
-    color: rgb(32, 32, 59);  text-decoration: none; 
-    font-weight: bold;  font-size: 15px;
-}
-#No4:hover{
-    background-color: rgba(255, 183, 1, 0.376); 
-}
-#No5{
-    color: rgb(32, 32, 59);  text-decoration: none; 
-    font-weight: bold;  font-size: 15px;
-}
-#No5:hover{
-    background-color: rgba(255, 183, 1, 0.376); 
-}
-#house{
-    display: flex;  width: 1366px;  background-color: white;
-    margin-right: -6px;  margin-top: -10px;  position: fixed;
-}
-#lin{
-    color: rgb(32, 32, 59);   text-decoration: none;
-    margin-top: -13px;  margin-bottom: 9px;
-}
-#left{
-    display: flex;
-}
-#img0{
-    width: 0.9cm; height: 1.0cm;
-          margin-left: 1.2cm;  margin-top: 0.7cm;
-}
-#namie{
-    font-family: Playball;  word-spacing: 5px;  margin-top: 0.8cm; 
-    color: rgb(32, 32, 59);   font-weight: bolder;
-}
-#menu{
-    height: 20px;  width: 30px;  margin-top: 15px;
-    margin-left: 5px;  margin-bottom: -2px;
-}
 
-#cont{
-    margin-top: 50px; font-size: 40px;
-color: rgb(107, 107, 107);  opacity: 30%; 
-margin-left: 450px;  font-weight: bold;  font-family: Poppins;  
-}
-#tent{
-    display: flex;
-    gap: 40px;
-}
-#img1{
-    margin-top: -70px;
-    margin-left: 170px;
-}
-#nom{
-    /* background-color: white; */
-    width: 400px;
-    margin-left: 60px;
-    margin-top: -40px;
-}
-#wit{
-    padding-left: 30px;
-}
-#ink{
-    margin-top: 40px;
-}
-#phone{
-    display: flex;
-    gap: 25px;
-}
-#line{
-    margin-top: 50px;
-    gap: 100px;
-    padding-left: 30px;
-    margin-bottom: 20px;
-}
+    html {
+      scroll-behavior: smooth;
+    }
 
-    </style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-image: url("/images/background-pro.png");
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+
+    header#house {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: white;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      padding: 15px 30px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    #left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    #img0 {
+      height: 40px;
+    }
+
+    #namie {
+      font-family: 'Playball', cursive;
+      font-size: 1.5rem;
+      color: rgb(32, 32, 59);
+    }
+
+    .navbar a {
+      color: rgb(32, 32, 59);
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 15px;
+      padding: 8px 12px;
+      transition: background-color 0.3s ease;
+    }
+
+    .navbar a:hover,
+    .navbar a.active {
+      background-color: rgba(255, 183, 1, 0.376);
+      border-radius: 4px;
+    }
+
+    .navbar {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    #cont {
+      margin-top: 100px;
+      text-align: center;
+      font-size: 40px;
+      color: rgb(107, 107, 107);
+      opacity: 0.6;
+      font-weight: bold;
+    }
+
+    #tent {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 40px;
+      padding: 40px;
+      flex-wrap: wrap;
+    }
+
+    #img1 {
+      max-width: 400px;
+      width: 100%;
+    }
+
+    #nom {
+      max-width: 400px;
+    }
+
+    #wit {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+    }
+
+    #phone {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    #phone i {
+      margin-top: 6px;
+      font-size: 18px;
+      color: rgb(32, 32, 59);
+    }
+
+    #phone h4 {
+      font-weight: normal;
+      line-height: 1.5;
+    }
+
+    #line a {
+      display: block;
+      color: rgb(32, 32, 59);
+      margin-bottom: 10px;
+      text-decoration: none;
+      font-size: 16px;
+    }
+
+    #line a i {
+      margin-right: 8px;
+    }
+
+    #line a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      #tent {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      #img1 {
+        margin-bottom: 20px;
+      }
+    }
+  </style>
 </head>
 <body>
-  <section id="house" class="house"  >
-    <div class="left" id="left">
-      <img src="/images/logo-removebg-preview.png" alt="" id="img0">
+
+  <header id="house">
+    <div id="left">
+      <img src="/images/logo-removebg-preview.png" alt="Tomi's Kitchen Logo" id="img0" />
       <h2 id="namie">Tomi's Kitchen</h2>
     </div>
-  
-    <div class="navbar">
-        <div class="navbar">
-            <a href="/" id="No1">Home</a>
-            <a href="/about" id="No2">About</a>
-            <a href="/contact" id="No3">Contacts</a>
-            <a href="/menu" id="No4">Our Menus</a>
-            <a href="/book" id="No5" >Book A Table</a>
-        </div> 
-      </section>
-<br>
-<p id="cont">Contact Us</p>
-    
-<div id="tent">
-<img src="/images/contact_image renewed.png" alt="" id="img1">
-<div id="nom">
-  <div class="icons">
-    <h2 id="wit">For more Enquiries... <br> Contact us:</h2>
-    <div id="phone">
-    <i class="fa-solid fa-phone" id="ink"></i>
-    <h4>+234-8109753391 <br>+234-8136552863 <br>+234-8131621222</h4>
-</div>
-<div class="lin" id="line">
-    <a href="https://www.facebook.com/profile.php?id=100073702803134"><i class="fa-brands fa-facebook">Tomi's Kitchen</i></a> <br>
-<a href="https://wa.link/nyndls"><i class="fa-brands fa-whatsapp">Tomi's Kitchen</i></a> <br>
-<a href="https://www.google.com/url?sa=i&url=https%3A%2F%2Ftwitter.com%2Fbrentstores%3Flang%3Den&psig=AOvVaw3zh_BYAhlAkTCqWIRKlazK&ust=1727265207819000&source=images&cd=vfe&opi=89978449&ved=0CAYQrpoMahcKEwiYrejdrdyIAxUAAAAAHQAAAAAQBA"><i class="fa-brands fa-x-twitter">Tomi's Kitchen</i></a> <br>
-<a href="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.instagram.com%2Fbrentsupermarkets%2F%3Fhl%3Den&psig=AOvVaw3zh_BYAhlAkTCqWIRKlazK&ust=1727265207819000&source=images&cd=vfe&opi=89978449&ved=0CAYQrpoMahcKEwiYrejdrdyIAxUAAAAAHQAAAAAQBg"><i class="fa-brands fa-instagram">Tomi's Kitchen</i></a>
-</div>
-</div>
-</div>
+    <nav class="navbar">
+      <a href="/" id="No1">Home</a>
+      <a href="/about" id="No2">About</a>
+      <a href="/contact" class="active" id="No3">Contacts</a>
+      <a href="/menu" id="No4">Our Menus</a>
+      <a href="/book" id="No5">Book A Table</a>
+    </nav>
+  </header>
+
+  <main>
+    <p id="cont">Contact Us</p>
+
+    <section id="tent">
+      <img src="/images/contact_image renewed.png" alt="Contact Illustration" id="img1" />
+
+      <div id="nom">
+        <h2 id="wit">For more Enquiries... <br>Contact us:</h2>
+
+        <div id="phone">
+          <i class="fa-solid fa-phone"></i>
+          <h4>
+            <a href="tel:+2348109753391">+234-8109753391</a><br>
+            <a href="tel:+2348136552863">+234-8136552863</a><br>
+            <a href="tel:+2348131621222">+234-8131621222</a>
+          </h4>
+        </div>
+
+        <div id="line">
+          <a href="https://www.facebook.com/profile.php?id=100073702803134" target="_blank">
+            <i class="fa-brands fa-facebook"></i> Tomi's Kitchen
+          </a>
+          <a href="https://wa.link/nyndls" target="_blank">
+            <i class="fa-brands fa-whatsapp"></i> Tomi's Kitchen
+          </a>
+          <a href="https://twitter.com/brentstores" target="_blank">
+            <i class="fa-brands fa-x-twitter"></i> Tomi's Kitchen
+          </a>
+          <a href="https://www.instagram.com/brentsupermarkets/" target="_blank">
+            <i class="fa-brands fa-instagram"></i> Tomi's Kitchen
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
 </body>
 </html>
