@@ -18,23 +18,28 @@ router.post("/pay", async (req, res) => {
     if (!email || !amount) {
       return res.status(400).json({ error: "Email and amount are required" });
     }
-    const response = await axios.post(
-      "https://api.paystack.co/transaction/initialize",
-      {
-        email,
-        amount: amount * 100, // Convert to kobo
-        metadata: { fname, phone },
-        currency: "NGN",
-        callback_url: "http://localhost:4000/verify",
-        headers: {
-          Authorization: `Bearer ${PAYSTACK_SECRET_KEY}`,
-          "Content-Type": "application/json",
-        },
-      });
+    const response = await axios.post("https://api.paystack.co/transaction/initialize",
+  {
+    email,
+    amount: amount * 100, // Convert to kobo
+    metadata: { fname, phone },
+    currency: "NGN",
+    callback_url: "http://localhost:4000/verify",
+  },
+  {
+    headers: {
+      Authorization: `Bearer ${PAYSTACK_SECRET_KEY}`,
+      "Content-Type": "application/json",
+    },
+  }
+);
+
       if(response.data.status){
         const reference = response.data.data.reference;
-    let query = 'INSERT INTO booking VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)'
-    mysqlConnection.query(query, [bookingid.id, fname, lname, email, phone, bookType, location, date, time, until, booking_status, reference, guests],(err) => {           
+    let query = 'INSERT INTO bookings(id, Customer_Firstname, Customer_Lastname, Email, Phone_Number, Booking_Type, Table_Location, Date, Time, Until, guests, status, payment_reference, payment_status, amount_paid) \
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)'
+    mysqlConnection.query(query, [bookingid.id, fname, lname, email, phone,
+      bookType, location, date, time, until, guests, booking_status, reference, "Pending", amount],(err) => {           
     if (err) {
         console.error(err)
     }
@@ -61,7 +66,7 @@ router.get("/verify", async (req, res) => {
     );
 
     if (response.data.data.status === "success") {
-      mysqlConnection.query(`UPDATE booking SET status = 'Approved' WHERE reference = ?`, [reference], (err) => {
+      mysqlConnection.query(`UPDATE bookings SET payment_status = ? WHERE payment_reference = ?`, ["Paid", reference], (err) => {
         if (err) throw err;
       });
 
@@ -72,14 +77,14 @@ router.get("/verify", async (req, res) => {
             <p>You will be redirected to the booking page in 10 seconds...</p>
             <script>
               setTimeout(function() {
-                window.location.href = '/booking/book';
+                window.location.href = '/book';
               }, 10000);
             </script>
           </body>
         </html>
       `);
     } else {
-      mysqlConnection.query(`UPDATE booking SET status = 'Canceled' WHERE reference = ?`, [reference], (err) => {
+      mysqlConnection.query(`UPDATE booking SET status = ? WHERE payment_reference = ?`, ["Failed", reference], (err) => {
         if (err) throw err;
       });
 

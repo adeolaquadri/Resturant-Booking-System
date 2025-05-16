@@ -4,15 +4,10 @@ const router = express.Router();
 
 // Client booking page
 router.get('/book', (req, res) => {
-  mysqlConnection.query("SELECT * FROM tables WHERE status = 'available'", (err, rows) => {
+  mysqlConnection.query("SELECT * FROM tables WHERE status = ?", ['Available'], (err, rows) => {
     if (err) throw err;
-
-    mysqlConnection.query('SELECT * FROM menu', (err, menu) => {
-      if (err) throw err;
-
-      res.render('book.ejs', { tables: rows, menu: menu, error: '' });
+    res.render('book.ejs', { tables: rows, error: '' });
     });
-  });
 });
 
 // New booking submission
@@ -40,6 +35,32 @@ router.post('/new_booking', (req, res) => {
       </html>
     `);
   });
+});
+
+router.get('/booking/pricing', async (req, res) => {
+  const { bookingType, location } = req.query;
+
+   mysqlConnection.query(
+    'SELECT price_per_guest FROM pricing WHERE booking_type = ? AND table_location = ?',
+    [bookingType, location], (err, rows)=>{
+    if (rows.length === 0) return res.status(404).json({ error: 'Pricing not found' });
+
+    res.json({ price: rows[0].price_per_guest });
+
+    });
+});
+
+router.get('table/capacity', async (req, res) => {
+  const {table_number, location, capacity,  } = req.query;
+
+   mysqlConnection.query(
+    'SELECT capacity FROM tables WHERE table_number = ? AND location = ? AND capacity = ?',
+    [table_number, location, capacity], (err, rows)=>{
+    if (rows.length === 0) return res.status(404).json({ error: 'Status not found' });
+
+    res.json({ status: rows[0].status });
+
+    });
 });
 
 module.exports = router;

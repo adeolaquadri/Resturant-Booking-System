@@ -149,29 +149,18 @@
         <label for="bookType">Booking Type</label>
         <select name="bookType" id="bkty" required>
       <option value="" disabled selected>Select Booking Type</option>
-      <option value="Lunch">Lunch Menu</option>
-      <option value="Christmas">Christmas</option>
-      <option value="Dinner">Dinner Menu</option>
-      <option value="Date">Date Night</option>
-      <option value="Meeting">Business Meeting</option>
-      <option value="Family Dinner">Family Dinner</option>
-      <option value="Friends">Friends' Night Out</option>
-      <option value="Proposal">Proposal Dinner</option>
-      <option value="Conference">Conference Dinner</option>
-      <option value="Reunion">Reunion</option>
-      <option value="Wedding">Wedding Reception</option>
-      <option value="Night-out">Couples' Night Out</option>
-      <option value="Client">Client Meeting</option>
-      <option value="Graduation">Graduation Menu</option>
+      <option value="Single">Single</option>
+      <option value="Group">Group</option>
+
   </select>
         </div>
         <div class="form-group">
-        <label for="pac" id="tegr">Table Location</label>
+        <label for="pac" id="tegr">Table Location <span id="capacity"></span></label>
        <select name="location" id="tl" required>
         <option value="" disabled selected>Select Table Location</option>
         <%tables.forEach(table => {%>    
-        <option value="<%=table.table_location%>" 
-            style="text-transform: capitalize;"><%=table.table_name%>- capacity(<%=table.capacity%>)</option>
+        <option value="<%=table.location%>" 
+            style="text-transform: capitalize;"><%=table.location%></option>
     <%})%>
 </select>
         </div>
@@ -203,33 +192,34 @@
 
       </div>
 
-      <div class="form-group">
-    <label for="menu" id="forMenu">Select Menu:</label>
-    <select id="menu">
-        <%menu.forEach(tableMenu => {%>
-      <option value="<%=tableMenu.price%>" id="menuType"><%=tableMenu.type%></option>
-      <%})%>
-    </select>
+      <div class="form-group">  
     <p>Total Amount: NGN <span id="amount">0</span></p>
       </div>
-
       <button id="Submit" class="submit-button">Book Now</button>
   </section>
 
 <script>
-  document.getElementById("guests").addEventListener("input", updateAmount);
-  document.getElementById("menu").addEventListener("change", updateAmount);
+  async function updatePrice() {
+    const bookingType = document.getElementById('bkty').value;
+    const location = document.getElementById('tl').value;
+    const guests = parseInt(document.getElementById('guests').value);
 
-  
-  function updateAmount() {
-    const guests = document.getElementById("guests").value || 1;
-    const menuPrice = document.getElementById("menu").value;
-    const total = guests * menuPrice;
-    document.getElementById("amount").innerText = total;
-    //  console.log(`Amount: ${ document.querySelector("#amount").innerText}`);
+    if (!bookingType || !location || isNaN(guests)) return;
 
+    const res = await fetch(`/booking/pricing?bookingType=${bookingType}&location=${location}`);
+    const data = await res.json();
+
+    if (data.price) {
+      const total = guests * data.price;
+      document.getElementById('amount').innerText = total;
+    }
   }
-     
+  // Event listeners
+  document.getElementById('bkty').addEventListener('change', updatePrice);
+  document.getElementById('tl').addEventListener('change', updatePrice);
+  document.getElementById('guests').addEventListener('input', updatePrice);
+
+
    document.querySelector("#Submit").addEventListener('click', async (e) => {
     e.preventDefault();
     let Fname = document.querySelector("#Firstname").value;

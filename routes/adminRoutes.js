@@ -35,21 +35,21 @@ router.get('/dashboard', (req, res) => {
     const identity = jwt.verify(req.cookies.jwt, process.env.secret_key);
     mysqlConnection.query('SELECT * FROM admin WHERE email = ?', [identity.email], (err, admin) => {
       if (err) throw err;
-    mysqlConnection.query('SELECT * FROM booking WHERE status = ?', ["Pending"], (err, pending)=>{
+    mysqlConnection.query('SELECT * FROM bookings WHERE status = ?', ["Pending"], (err, pending)=>{
       if (err) throw err;
-    mysqlConnection.query('SELECT * FROM booking WHERE status = ?', ["Approved"], (err, approved)=>{
+    mysqlConnection.query('SELECT * FROM bookings WHERE status = ?', ["Completed"], (err, completed)=>{
       if (err) throw err;
-    mysqlConnection.query('SELECT * FROM booking WHERE status = ?', ["Canceled"], (err, canceled)=>{
+    mysqlConnection.query('SELECT * FROM bookings WHERE status = ?', ["Cancelled"], (err, cancelled)=>{
       if (err) throw err;
-     mysqlConnection.query('SELECT * FROM booking', (err, bookings)=>{
+     mysqlConnection.query('SELECT * FROM bookings', (err, bookings)=>{
       if (err) throw err;
       res.render('admindashboard', {
         admin: admin[0],
         email: identity.email,
         bookings: bookings,
         pending: pending,
-        approved: approved,
-        canceled: canceled
+        completed: completed,
+        cancelled: cancelled
       });
     });
   });
@@ -62,45 +62,17 @@ router.get('/dashboard', (req, res) => {
 });
 
 
-//GET: Admin Profile Route
-router.get('/profile', (req, res) => {
-    if(req.cookies.jwt){
-        const identity = jwt.verify(req.cookies.jwt, process.env.secret_key)
-        mysqlConnection.query(`select * from admin where username = '${identity.username}'`, (err, admin)=>{
-            if(err) throw err
-        res.render('adminprofile',{
-            admin:admin,
-            image:admin[0].profile_picture,
-            username:identity.username
-        })
-    })
-    }
-});
 
-//GET: Admin add new booking
-router.get('/new_booking', (req,res)=>{
-    if(req.cookies.jwt){
-        const verify = jwt.verify(req.cookies.jwt, process.env.secret_key)
-        mysqlConnection.query(`select * from tables where status = 'available'`, (err, tables)=>{
-            if(err) throw err
-        mysqlConnection.query(`select * from menu`, (err, menu)=>{
-        res.render("newbooking.ejs", {message: "", tables:tables, menu:menu})
-        })
-        })
-    }else{
-        res.redirect('/admin/dashboard')
-    }
-})
 
-//POST: Admin add new booking
+//POST: Admin add new bookings
 router.post('/new_booking', (req, res) => {
         const { fname, lname, phone, email, bookType, guests, reference, location, date, time, until } = req.body;
-        const bookingid = { id:'tsk'+Date.now().toString(10) };
-        const booking_status = 'Pending'
+        const bookingsid = { id:'tsk'+Date.now().toString(10) };
+        const bookings_status = 'Pending'
 
         // Prepare and execute the query
-        let query = 'INSERT INTO booking VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)'
-        mysqlConnection.query(query, [bookingid.id, fname, lname, email, phone, bookType, location, date, time, until, booking_status, reference, guests],
+        let query = 'INSERT INTO bookings VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)'
+        mysqlConnection.query(query, [bookingsid.id, fname, lname, email, phone, bookType, location, date, time, until, bookings_status, reference, guests],
             (err) => {
                 // Handle query error
                 if (err) {
@@ -110,7 +82,7 @@ router.post('/new_booking', (req, res) => {
                 res.send(`
                     <html>
                         <head>
-                            <title>Booking Successful</title>
+                            <title>bookings Successful</title>
                             <link rel="icon" href="/images/logo-removebg-preview.png">
                             <script>
                                 setTimeout(function() {
@@ -119,7 +91,7 @@ router.post('/new_booking', (req, res) => {
                             </script>
                         </head>
                         <body>
-                            <h1>You have successfully added a new booking</h1>
+                            <h1>You have successfully added a new bookings</h1>
                             <p>You will be redirected back to the dashboard page in 5 seconds...</p>
                         </body>
                     </html>
@@ -132,94 +104,47 @@ router.post('/new_booking', (req, res) => {
 //GET:Admin change password route
 router.get('/change_password', (req ,res)=>{
     if(req.cookies.jwt){
-        const identity = jwt.verify(req.cookies.jwt, process.env.secret_key)
-        mysqlConnection.query(`select * from admin where username = '${identity.username}'`, (err, admin)=>{
-        res.render('change_password', {image:admin[0].profile_picture, username:identity.username})
-        })
+        res.render('change_password');
     }else{
-        res.redirect('/admin/login')
+        res.redirect('/admin/login');
     }
 })
-//POST: Admin change password
-router.post('/change_password', (req, res)=>{
+//PUT: Admin change password
+router.put('/change_password', async(req, res)=>{
     try{
-        if(req.cookies.jwt){
+        if(!req.cookies.jwt) return res.status(401).json({success: false, message: 'Unauthourized Access!'})
         const verify = jwt.verify(req.cookies.jwt, process.env.secret_key)
-        mysqlConnection.query('select password from admin where username = ?',[verify.username], async(err, result)=>{
-                if(err) throw err
-                if(result.length==1){
-                const isValidPassword = await bcrypt.compare(req.body.newpassword, result[0].password)
-                 if(isValidPassword){
-                    if(req.body.confirmpassword !== req.body.newpassword){
-                        res.send(`
-                            <html>
-                            <head>
-                            <title>Error</title>
-                            </head>
-                            <body>
-                            <h4>Passwords do not match!</h4>
-                            <p>You will be redirected back to change password page in 5 sec</p>
-                            <script>
-                            setTimeout(function(){
-                            window.location.href = '/admin/change_password'
-                            },5000)
-                            </script>                               
-                            </body>
-                            </html>`)
-                    }else{
-                        const password = await bcrypt.hash(req.body.newpassword, 10)
-                    mysqlConnection.query('UPDATE admin SET password = ? where username = ? ',
-                        [password, verify.username], (err)=>{
-                            if(err) throw err
-                            res.send(`
-                                <html>
-                                <head>
-                                <title>Success</title>
-                                </head>
-                                <body>
-                                <h4>Password has been updated successfully!</h4>
-                                <p>You will be redirected to the login page in 5 sec</p>
-                                <script>
-                                setTimeout(function(){
-                                window.location.href = '/logout'
-                                },5000)
-                                </script>                               
-                                </body>
-                                </html>`)
-                        })
-                }
-                }else{
-                    res.send(`
-                        <html>
-                        <head>
-                        <title>Error</title>
-                        </head>
-                        <body>
-                        <h4>Invalid Password!</h4>
-                        <p>You will be redirected back to change password page in 5 sec</p>
-                        <script>
-                        setTimeout(function(){
-                        window.location.href = '/admin/change_password'
-                        },5000)
-                        </script>                               
-                        </body>
-                        </html>`)
-                }
-            }
-            })
+        const {oldpassword, newpassword, confirmpassword} = req.body;
+        mysqlConnection.query('SELECT password from admin WHERE email = ?', [verify.email], async(err, pass)=>{
+        if(err) throw err;
+        const isValidPassword = await bcrypt.compare(pass[0].password, oldpassword)
+        if(isValidPassword){
+
+        if(confirmpassword !== newpassword) 
+        return res.status(401).json({success: false, message: "Passwords do not match"});
+
+        const password = await bcrypt.hash(newpassword, 10)
+        mysqlConnection.query('UPDATE admin SET password = ? where email = ? ', [password, verify.email], (err)=>{
+        if(err) return res.status(500).json({success: false, message: "Error updating password"});
+        return res.status(200).json({success: true, message: "Password updated successfully"});
+
+        });
+        }else{
+            return res.status(401).json({success: false, message: "Invalid Password"});
         }
+    })
     }catch(e){
-        console.log(e)
+       return res.status(500).json({success: false, message: "Error updating password"});
     }
 })
 
-//GET: Admin retrieve and manage all booking records
+//GET: Admin retrieve and manage all bookings records
 router.get('/manage_bookings',(req, res)=>{
     if(!req.cookies.jwt){
         res.redirect('/admin/login')
     }else{
         const identity = jwt.verify(req.cookies.jwt, process.env.secret_key)
-        mysqlConnection.query('select * from booking', (err, result)=>{
+        mysqlConnection.query('select * from bookings', (err, result)=>{
           if(err) throw err;
         res.render('manage_bookings',{
             bookings:result,
@@ -243,42 +168,71 @@ router.get('/manage_tables',(req, res)=>{
     };
   });
 
-//POST: Admin Delete Booking
+router.get('/tables', async(req, res)=>{
+    try{
+        mysqlConnection.query('SELECT * from tables', (err, rows)=>{
+            if(err) return res.status(500).json({message: err.sqlMessage});
+           return res.status(200).json(rows);
+        })
+    }catch(e){
+        return res.status(500).json({error: e.message});
+    }
+})
+
+
+//POST: Admin Delete bookings
 router.delete('/bookings/:id', (req, res)=>{
     if(req.cookies.jwt){
         let {id} = req.params;
-        mysqlConnection.query(`delete from booking where id = ?`, [id], (err, feedback)=>{
+        mysqlConnection.query(`delete from bookings where id = ?`, [id], (err, feedback)=>{
         if(err) throw err;
-        res.json({ success: true, message: 'Booking deleted successfully' });
+        res.json({ success: true, message: 'bookings deleted successfully' });
         });
     };
 })
 
-//POST: Admin Update Booking
+//PUT: Admin Update bookings
 router.put('/bookings/:id', (req, res)=>{
     try{
       const {status} = req.body;
       const {id} = req.params;
 
       if(req.cookies.jwt){
-      let query = 'UPDATE booking SET status = ? where id = ?'
+      let query = 'UPDATE bookings SET status = ? where id = ?'
       mysqlConnection.query(query, [status, id], (err, response)=>{
       if(err)throw err;
-      res.json({ success: true, message: 'Booking updated successfully' });
+      res.json({ success: true, message: 'bookings updated successfully' });
     });
     }else{
-    res.redirect('/admin/manage_booking');
+    res.redirect('/admin/manage_bookings');
     };
     }catch(e){
         console.log(e);
     };
 });
 
-//POST: Admin Delete Table
+//POST: Admin Add Table
+router.post('/table', async(req, res)=>{
+    if(!req.cookies.jwt) res.redirect('/admin/login');
+    try{
+        const {table_number, location, capacity, status} = req.body
+        let addTable = 'INSERT INTO tables(table_number, location, capacity, status) values(?,?,?,?)'
+        let tableData = [table_number, location, capacity, status]
+        mysqlConnection.query(addTable, tableData, (err)=>{
+            if(err) return res.status(500).json({success: "false", message: "Error adding table"});
+            return res.status(201).json({success: true, message: "Table created successfully"});
+        })
+
+    }catch(e){
+        return res.status(500).json({success: false, message: 'Error adding table'})
+    }
+})
+
+//DELETE: Admin Delete Table
 router.delete('/table/:id', (req, res)=>{
     if(req.cookies.jwt){
         let {id} = req.params;
-        mysqlConnection.query(`delete from tables where id = ?`, [id], (err)=>{
+        mysqlConnection.query(`delete from tables where table_id = ?`, [id], (err)=>{
             if(err)throw err;
             res.json({ success: true, message: 'Table deleted successfully' });
 
@@ -286,26 +240,20 @@ router.delete('/table/:id', (req, res)=>{
     }
 })
 
-//POST: Admin Update Table
+//PUT: Admin Update Table
 router.put('/table/:id', (req, res)=>{
     try{
         if(req.cookies.jwt){
-          let {id, tableName, tableLocation, tableStatus, tableCapacity} = req.body;
-    mysqlConnection.query(`select * from tables where id = ?`, [id], (err, result)=>{
-            if(err) throw err;
-            if(result.length === 1){
-        let myquery = 'UPDATE tables SET table_location = ?, status = ?, table_name = ?, capacity = ? where id = ?'
-        let data = [tableLocation, tableStatus, tableName, tableCapacity, id]
-    mysqlConnection.query(myquery, data, (err)=>{
-        if(err) throw err;
-          res.json({ success: true, message: 'Table updated successfully' });
-
-    })
+          let {status} = req.body;
+          let {id} = req.params;
+          let myquery = 'UPDATE tables SET status = ? where table_id = ?'
+          let data = [status, id]
+        mysqlConnection.query(myquery, data, (err)=>{
+           if(err) return res.status(500).json({success: false, message: 'Error updating table'});
+          res.json({ success: true, message: 'Table updated successfully' });  })
 }else{
-    res.redirect('/admin/manage_booking');
+    res.redirect('/admin/manage_bookings');
 };
-});
-        };
     }catch(e){
         console.log(e);
     };
@@ -358,9 +306,9 @@ router.get('/logout', (req, res) => {
   res.redirect('/admin/login');
 });
 
-router.get('/bookings', async(req, res)=>{
+router.get('/bookingss', async(req, res)=>{
   try{
-  mysqlConnection.query('SELECT * from booking', (err, result)=>{
+  mysqlConnection.query('SELECT * from bookings', (err, result)=>{
     if (err) throw err;
     return res.json(result);
   });
