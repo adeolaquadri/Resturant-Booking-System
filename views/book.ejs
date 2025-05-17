@@ -14,78 +14,96 @@
 
     body {
       font-family: 'Poppins', sans-serif;
-      background-color: #e6d3a5;
+      background-color: #f3e9d2;
       display: flex;
-      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       min-height: 100vh;
+      padding: 1rem;
     }
 
-    #ba {
-      background-color: #fff;
-      padding: 30px 20px;
-      border-radius: 20px;
+    .container {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 1.5rem;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
       max-width: 700px;
-      width: 90%;
-      margin: 100px auto;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      width: 100%;
+      position: relative;
     }
 
-    #namie {
+    .logo {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      display: none;
+    }
+
+    .logo img {
+      max-width: 100px;
+      height: auto;
+    }
+
+    h2 {
       text-align: center;
-      font-size: 2rem;
       font-family: 'Playball', cursive;
       color: #fb8500;
-      margin-bottom: 20px;
+      font-size: 2.2rem;
+      margin-bottom: 1.5rem;
     }
 
     form {
       display: flex;
       flex-direction: column;
-      gap: 15px;
+      gap: 1.5rem;
+    }
+
+    .form-row {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .form-group {
+      flex: 1;
+      min-width: 140px;
+      display: flex;
+      flex-direction: column;
     }
 
     label {
       font-weight: 500;
-      margin-bottom: 5px;
+      margin-bottom: 0.4rem;
+      color: #333;
     }
 
     input, select {
-      padding: 10px;
+      padding: 0.75rem;
       border: 2px solid #fb8500;
-      border-radius: 10px;
-      outline: none;
+      border-radius: 0.75rem;
       font-size: 1rem;
-      width: 100%;
+      outline: none;
+      transition: border-color 0.3s;
     }
 
     input:focus, select:focus {
       border-color: #ffb703;
     }
 
-    .form-group {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .form-row {
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-
-    .form-row .form-group {
-      flex: 1;
-      min-width: 140px;
+    .amount-display {
+      font-weight: 600;
+      font-size: 1rem;
+      color: #333;
     }
 
     .submit-button {
       background-color: #fb8500;
       color: #fff;
       border: none;
-      padding: 12px;
+      padding: 1rem;
       font-size: 1rem;
       font-weight: 500;
-      border-radius: 10px;
+      border-radius: 0.75rem;
       cursor: pointer;
       transition: background-color 0.3s;
     }
@@ -94,109 +112,112 @@
       background-color: #e07c00;
     }
 
-    #pngbk {
-      display: none;
-    }
-
     @media (min-width: 768px) {
-      #ba {
-        padding: 40px;
+      .logo {
+        display: block;
       }
 
-      #pngbk {
-        display: block;
-        position: absolute;
-        top: 20px;
-        right: 20px;
-        max-width: 150px;
+      .container {
+        padding: 3rem 2.5rem;
       }
+    }
+     /* Footer */
+    .footer {
+      width: 100%;
+      max-width: 1156px;
+      margin: 50px auto 30px;
+      padding: 1rem 1rem;
+      color: rgb(32, 32, 59);
+      font-weight: 500;
+      text-align: center;
+      border-radius: 7px;
+      user-select: none;
     }
   </style>
 </head>
 <body>
+  <div class="container">
+    <div class="logo">
+      <img src="images/logo-removebg-preview.png" alt="Logo" />
+    </div>
 
-  <div id="pngbk">
-    <img src="images/logo-removebg-preview.png" height="80" alt="Book a Table Illustration" />
+    <h2>Book A Table</h2>
+    <form>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="Firstname">First Name *</label>
+          <input type="text" id="Firstname" name="fname" required />
+        </div>
+        <div class="form-group">
+          <label for="Lastname">Last Name *</label>
+          <input type="text" id="Lastname" name="lname" required />
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="Phone">Phone *</label>
+          <input type="tel" id="Phone" name="phone" required />
+        </div>
+        <div class="form-group">
+          <label for="Email">Email *</label>
+          <input type="email" id="Email" name="email" required />
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="bkty">Booking Type *</label>
+          <select id="bkty" name="bookType" required>
+            <option value="" disabled selected>Select Booking Type</option>
+            <option value="Single">Single</option>
+            <option value="Group">Group</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="tl">Table Location *</label>
+          <select id="tl" name="location" required>
+            <option value="" disabled selected>Select Table Location</option>
+            <% tables.forEach(table => { %>    
+              <option value="<%= table.location %>" style="text-transform: capitalize;">
+                <%= table.location %>
+              </option>
+            <% }) %>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="guests">Number of Guests *</label>
+          <input type="number" id="guests" name="numPeople" min="1" required />
+        </div>
+        <div class="form-group">
+          <label for="Date">Date *</label>
+          <input type="date" id="Date" name="date" required />
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="Time">Start Time *</label>
+          <input type="time" id="Time" name="time" required />
+        </div>
+        <div class="form-group">
+          <label for="Until">End Time *</label>
+          <input type="time" id="Until" name="until" required />
+        </div>
+      </div>
+
+      <p class="amount-display">Total Amount: NGN <span id="amount">0</span></p>
+
+      <button type="submit" class="submit-button" id="Submit">Book Now</button>
+    </form>
+       <footer class="footer">
+     &copy; <%= new Date().getFullYear() %> Tomi's Kitchen. All rights reserved. 
+</footer>
   </div>
-
-  <section id="ba">
-    <h2 id="namie">Book A Table</h2>
-
-      <div class="form-row">
-        <div class="form-group">
-          <label for="Firstname">First Name</label>
-          <input type="text" name="fname" id="Firstname" required />
-        </div>
-        <div class="form-group">
-          <label for="Lastname">Last Name</label>
-          <input type="text" name="lname" id="Lastname" required />
-        </div>
-      </div>
-
-      <div class="form-row">
-        <div class="form-group">
-          <label for="Phone">Phone</label>
-          <input type="tel" name="phone" id="Phone" required />
-        </div>
-        <div class="form-group">
-          <label for="Email">Email</label>
-          <input type="email" name="email" id="Email" required />
-        </div>
-      </div>
-
-      <div class="form-row">
-        <div class="form-group">
-        <label for="bookType">Booking Type</label>
-        <select name="bookType" id="bkty" required>
-      <option value="" disabled selected>Select Booking Type</option>
-      <option value="Single">Single</option>
-      <option value="Group">Group</option>
-
-  </select>
-        </div>
-        <div class="form-group">
-        <label for="pac" id="tegr">Table Location <span id="capacity"></span></label>
-       <select name="location" id="tl" required>
-        <option value="" disabled selected>Select Table Location</option>
-        <%tables.forEach(table => {%>    
-        <option value="<%=table.location%>" 
-            style="text-transform: capitalize;"><%=table.location%></option>
-    <%})%>
-</select>
-        </div>
-
-      </div>
-
-      <div class="form-row">
-        <div class="form-group">
-          <label for="Guests">Number of Guests</label>
-  <input type ="number" name="numPeople" placeholder="Number of Guests" id="guests" required min="1">
-        </div>
-
-        <div class="form-group">
-          <label for="Date">Date</label>
-          <input type="date" name="date" id="Date" required />
-        </div>
-      </div>
-
-      <div class="form-row">
-      <div class="form-group">
-        <label for="Time">Time</label>
-        <input type="time" name="time" id="Time" required />
-      </div>
-
-      <div class="form-group">
-        <label for="Until">Until</label>
-        <input type="time" name="until" id="Until" required />
-      </div>
-
-      </div>
-
-      <div class="form-group">  
-    <p>Total Amount: NGN <span id="amount">0</span></p>
-      </div>
-      <button id="Submit" class="submit-button">Book Now</button>
-  </section>
+ 
 
 <script>
   async function updatePrice() {

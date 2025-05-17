@@ -65,41 +65,26 @@ router.get('/dashboard', (req, res) => {
 
 
 //POST: Admin add new bookings
-router.post('/new_booking', (req, res) => {
-        const { fname, lname, phone, email, bookType, guests, reference, location, date, time, until } = req.body;
-        const bookingsid = { id:'tsk'+Date.now().toString(10) };
-        const bookings_status = 'Pending'
+router.post('/bookings', (req, res) => {
+  try{
+    if(!req.cookies.jwt) return res.status(401).json({success: false, message: "Authentication Failed"});
+    const {firstname, lastname, email, phone, booking_type, table_location, guests} = req.body;
+    const {date, time, until, status, payment_status, payment_reference, amount_paid} = req.body;
+    const bookingid = {id:'tsk'+Date.now().toString(10)}
 
-        // Prepare and execute the query
-        let query = 'INSERT INTO bookings VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)'
-        mysqlConnection.query(query, [bookingsid.id, fname, lname, email, phone, bookType, location, date, time, until, bookings_status, reference, guests],
-            (err) => {
-                // Handle query error
-                if (err) {
-                    return res.status(500).send('Error inserting data');
-                }
-                // Send success response
-                res.send(`
-                    <html>
-                        <head>
-                            <title>bookings Successful</title>
-                            <link rel="icon" href="/images/logo-removebg-preview.png">
-                            <script>
-                                setTimeout(function() {
-                                    window.location.href = '/admin/dashboard'; 
-                                }, 5000); // 5 seconds
-                            </script>
-                        </head>
-                        <body>
-                            <h1>You have successfully added a new bookings</h1>
-                            <p>You will be redirected back to the dashboard page in 5 seconds...</p>
-                        </body>
-                    </html>
-                `);
-            }
-        );
-    });
+    let query = 'INSERT INTO bookings(id, Customer_Firstname, Customer_Lastname, Email, Phone_Number, Booking_Type, Table_Location, Date, Time, Until, guests, status, payment_reference, payment_status, amount_paid) \
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)'
+    let data = [bookingid.id, firstname, lastname, email, phone, booking_type, table_location,
+       date, time, until, guests, status, payment_reference, payment_status, amount_paid];
 
+    mysqlConnection.query(query, data, (err)=>{
+      if(err) return res.status(500).json({success: false, message: "Error submitting new booking.."});
+      return res.status(201).json({success: true, message: "Booking submitted successfully"});
+    })
+  }catch(e){
+    return res.status(500).json({success: false, message: "Error submitting new booking.."});
+  }
+});
 
 //GET:Admin change password route
 router.get('/change_password', (req ,res)=>{

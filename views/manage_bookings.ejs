@@ -42,37 +42,99 @@
       border-radius: 5px;
       border: 1px solid #ccc;
     }
+ .modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100vh;        /* Use full viewport height */
+  overflow-y: auto;     /* Allow vertical scroll if content is tall */
+  background-color: rgba(0, 0, 0, 0.5);
+}
 
-    .modal {
-      display: none;
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0, 0, 0, 0.6);
-      justify-content: center;
-      align-items: center;
-      z-index: 1000;
-    }
+.modal-content {
+  background-color: #fff;
+  margin: 40px auto;    /* Add some margin top/bottom */
+  padding: 30px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 800px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 
-    .modal-content {
-      background: #fff;
-      padding: 20px;
-      border-radius: 10px;
-      min-width: 300px;
-      max-width: 400px;
-    }
+  /* Optional: limit max-height and scroll inside modal-content */
+  max-height: 90vh;     /* max height 90% viewport */
+  overflow-y: auto;     /* scroll inside if content too tall */
+}
 
-    .modal-content input,
-    .modal-content select {
-      display: block;
-      margin: 10px 0;
-      width: 100%;
-      padding: 8px;
-    }
+  .modal-content h3 {
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 1.5rem;
+  }
 
-    .modal-content button {
-      margin-right: 10px;
-    }
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 15px;
+  }
+
+  .form-group label {
+    font-weight: 500;
+    font-size: 0.95rem;
+  }
+
+  .form-group input,
+  .form-group select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 0.95rem;
+  }
+
+  .form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+  }
+
+  .form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    margin-top: 20px;
+  }
+
+  .form-actions button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #007bff;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+
+  .form-actions button:hover {
+    background-color: #0056b3;
+  }
+
+  .form-actions button:last-child {
+    background-color: #dc3545;
+  }
+
+  .form-actions button:last-child:hover {
+    background-color: #b02a37;
+  }
+
+  .modal-content input:required:invalid,
+  .modal-content select:required:invalid {
+    border-color: #e74c3c;
+  }
+
   .footer {
   margin-top: 40px;
   padding: 20px;
@@ -100,8 +162,8 @@
     <div class="filters">
       <select id="bookingTypeFilter">
         <option value="all">All Booking Types</option>
-        <option value="Dine-In">Dine-In</option>
-        <option value="Takeaway">Takeaway</option>
+        <option value="Single">Single</option>
+        <option value="Double">Double</option>
       </select>
 
       <select id="tableLocationFilter">
@@ -175,52 +237,130 @@
 
   <div class="pagination"></div>
 
-  <!-- Update Modal -->
-  <div class="modal" id="updateModal">
-    <div class="modal-content">
-      <h3>Update Booking</h3>
+ <!-- Update Booking Modal -->
+<div class="modal" id="updateModal">
+  <div class="modal-content">
+    <h3>Update Booking</h3>
+
+    <div class="form-group">
+      <label for="updateName">Full Name</label>
       <input type="text" id="updateName" placeholder="Full Name" disabled />
+    </div>
+
+    <div class="form-group">
+      <label for="updateStatus">Booking Status</label>
       <select id="updateStatus">
         <option value="Pending">Pending</option>
         <option value="Completed">Completed</option>
         <option value="Cancelled">Cancelled</option>
       </select>
+    </div>
+
+    <div class="form-actions">
       <button id="saveUpdateBtn">Save</button>
       <button id="closeModalBtn">Cancel</button>
     </div>
   </div>
+</div>
 
-  <!-- Add New Booking Modal -->
-  <div class="modal" id="addModal">
-    <div class="modal-content">
-      <h3>Add New Booking</h3>
-      <input type="text" id="firstName" placeholder="First Name" />
-      <input type="text" id="lastName" placeholder="Last Name" />
-      <input type="email" id="email" placeholder="Email" />
-      <input type="text" id="phone" placeholder="Phone Number" />
-      <select id="bookingType">
-        <option value="Dine-In">Dine-In</option>
-        <option value="Takeaway">Takeaway</option>
-      </select>
-      <select id="tableLocation">
-        <option value="VIP">VIP</option>
-        <option value="Regular">Regular</option>
-        <option value="Outdoor">Outdoor</option>
-      </select>
-      <input type="date" id="date" />
-      <input type="time" id="time" />
-      <input type="time" id="until" />
-      <input type="number" id="guests" placeholder="Guests" />
-      <select id="status">
-        <option value="Pending">Pending</option>
-        <option value="Completed">Completed</option>
-        <option value="Cancelled">Cancelled</option>
-      </select>
+<!-- Add New Booking Modal -->
+<div class="modal" id="addModal">
+  <div class="modal-content">
+    <h3>Add New Booking</h3>
+
+    <div class="form-grid">
+      <div class="form-group">
+        <label for="firstName">First Name *</label>
+        <input type="text" id="firstName" placeholder="Enter first name" required />
+      </div>
+
+      <div class="form-group">
+        <label for="lastName">Last Name *</label>
+        <input type="text" id="lastName" placeholder="Enter last name" required />
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email *</label>
+        <input type="email" id="email" placeholder="Enter email address" required />
+      </div>
+
+      <div class="form-group">
+        <label for="phone">Phone Number *</label>
+        <input type="text" id="phone" placeholder="Enter phone number" required />
+      </div>
+
+      <div class="form-group">
+        <label for="bookingType">Booking Type</label>
+        <select id="bookingType">
+          <option value="Single">Single</option>
+          <option value="Group">Double</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="tableLocation">Table Location</label>
+        <select id="tableLocation">
+          <option value="VIP">VIP</option>
+          <option value="Regular">Regular</option>
+          <option value="Outdoor">Outdoor</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="date">Booking Date *</label>
+        <input type="date" id="date" required />
+      </div>
+
+      <div class="form-group">
+        <label for="time">Start Time *</label>
+        <input type="time" id="time" required />
+      </div>
+
+      <div class="form-group">
+        <label for="until">End Time</label>
+        <input type="time" id="until" />
+      </div>
+
+      <div class="form-group">
+        <label for="guests">Number of Guests</label>
+        <input type="number" id="guests" placeholder="e.g. 2" min="1" />
+      </div>
+
+      <div class="form-group">
+        <label for="amount">Amount Paid</label>
+        <input type="number" id="amount" placeholder="e.g. 5000" />
+      </div>
+
+      <div class="form-group">
+        <label for="payment_reference">Payment Reference</label>
+        <input type="text" id="payment_reference" placeholder="e.g. TRX12345" />
+      </div>
+
+      <div class="form-group">
+        <label for="payment_status">Payment Status</label>
+        <select id="payment_status">
+          <option value="Pending">Pending</option>
+          <option value="Paid">Paid</option>
+          <option value="Failed">Failed</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="status">Booking Status</label>
+        <select id="status">
+          <option value="Pending">Pending</option>
+          <option value="Completed">Completed</option>
+          <option value="Cancelled">Cancelled</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-actions">
       <button id="saveAddBtn">Submit</button>
       <button onclick="document.getElementById('addModal').style.display='none'">Cancel</button>
     </div>
   </div>
-
+</div>
     <footer class="footer">
   <p>&copy; <%= new Date().getFullYear() %> Tomi's Kitchen. All rights reserved.</p>
 </footer>
@@ -314,17 +454,20 @@
 
   async function saveNewBooking() {
     const booking = {
-      Customer_FirstName: document.getElementById('firstName').value,
-      Customer_LastName: document.getElementById('lastName').value,
-      Email: document.getElementById('email').value,
-      Phone_Number: document.getElementById('phone').value,
-      Booking_Type: document.getElementById('bookingType').value,
-      Table_Location: document.getElementById('tableLocation').value,
-      Date: document.getElementById('date').value,
-      Time: document.getElementById('time').value,
-      Until: document.getElementById('until').value,
+      firstname: document.getElementById('firstName').value,
+      lastname: document.getElementById('lastName').value,
+      email: document.getElementById('email').value,
+      phone: document.getElementById('phone').value,
+      booking_type: document.getElementById('bookingType').value,
+      table_location: document.getElementById('tableLocation').value,
+      date: document.getElementById('date').value,
+      time: document.getElementById('time').value,
+      until: document.getElementById('until').value,
       guests: parseInt(document.getElementById('guests').value),
       status: document.getElementById('status').value,
+      payment_reference: document.getElementById('payment_reference').value,
+      payment_status: document.getElementById('payment_status').value,
+      amount_paid: document.getElementById('amount').value,
     };
 
     try {
@@ -336,7 +479,7 @@
 
       const data = await res.json();
       if (data.success) {
-        alert('Booking added!');
+        alert(data.message);
         location.reload();
       } else {
         alert(data.message || 'Failed to add booking');

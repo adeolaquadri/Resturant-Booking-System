@@ -1,560 +1,287 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Menus</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Playball&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-    <link rel="icon" href="/images/logo-removebg-preview.png">
-   <style>
-html{
-    scroll-behavior: smooth;
-}
-*{
-    box-sizing: border-box;
-}
-body{
-    font-family: Poppins;
-}
-.navbar{
-    width:100%;
-    height: auto;
-    position: sticky;
-    top: 0;
-    left: 0;
- }
-.navbar a{
-    display: inline-block;
-    justify-content: space-between;
-    margin-top: 0.7cm;
-    padding: 5px 9px 9px 12px;
-    margin-left: 40px;
-}
- @media screen and (max-width: 576px){
-    .navbar a {
-        float: none;
-        display: block;
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Our Menus</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Playball&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="icon" href="/images/logo-removebg-preview.png" />
+  <style>
+    /* Reset and base styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
-    #ime{
-      position: static;
-      margin-top: 350px;
- }
-}
 
-#namie{
-    font-family: Playball;
-}
-#No1{
-    color:  rgb(32, 32, 59);  text-decoration: none;  font-weight: bold; 
-    font-size: 15px; 
-}
-#No1:hover{
-    background-color: rgba(255, 183, 1, 0.376); 
-}
-#No2{
-    color: rgb(32, 32, 59);  text-decoration: none; 
-    font-weight: bold;  font-size: 15px;
-}
-#No2:hover{
-    background-color: rgba(255, 183, 1, 0.376); 
-}
-#No3{
-    color: rgb(32, 32, 59);  text-decoration: none; 
-    font-weight: bold;  font-size: 15px;
-}
-#No3:hover{
-    background-color: rgba(255, 183, 1, 0.376); 
-}
-#No4{
-    color: rgb(32, 32, 59);  text-decoration: none; 
-    font-weight: bold;  font-size: 15px;
-    background-color: rgba(255, 183, 1, 0.376); 
-}
-#No4:hover{
-    background-color: rgba(255, 183, 1, 0.376); 
-}
-#No5{
-    color: rgb(32, 32, 59);  text-decoration: none; 
-    font-weight: bold;  font-size: 15px;
-}
-#No5:hover{
-    background-color: rgba(255, 183, 1, 0.376); 
-}
-.house{
-    display: flex;  width: 1366px;  background-color: white;
-    margin-right: -6px;  margin-top: -10px;  
-    position: fixed; margin-left: -10px;
-}
-#lin{
-    color: rgb(32, 32, 59);   text-decoration: none;
-    margin-top: -13px;  margin-bottom: 9px;
-}
-.left{
-    display: flex;
-}
-#img0{
-    width: 0.9cm; height: 1.0cm;
-    margin-left: 1.2cm;  margin-top: 0.7cm;
-}
-#namie{
-    font-family: Playball;  word-spacing: 5px;  margin-top: 0.8cm; 
-    color: rgb(32, 32, 59);   font-weight: bolder;
-}
-#menu{
-    height: 20px;  width: 30px;  margin-top: 15px;
-    margin-left: 5px;  margin-bottom: -2px;
-}
+    html {
+      scroll-behavior: smooth;
+    }
 
-#img2{
-    height: 420px;  margin-top: -30px;
-    width: 1169px;  margin-left: -8px;
-    margin-bottom: -40px;  margin-right: -15px;
-}
-.checc{
-    position: sticky;
-    top: 66px;  width: 1169px;  
-    margin-left: -8px;  background-color: white;
-    height: 116px;  padding-bottom: -50px;
-}
-#oum{
-    color: rgb(135, 135, 135);  opacity: 14%;
-  font-weight: lighter;  font-family: Poppins;  font-size: 100px;
-margin-top: 0px;  word-spacing: 7px;
-margin-left: 300px;  margin-bottom: 0px;
-}
-#chk{
-    color: rgba(250, 180, 5, 0.783);  
-     margin-left: 370px;
- font-family: Poppins;  font-size: 20px; 
-  word-spacing: 5px; margin-top: -90px;
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: white;
+      color: rgb(32, 32, 59);
+      line-height: 1.4;
+    }
 
-}
- /* First Row */
-#foods-1{
-    display: flex;  gap: 120px;
-    margin-top: 30px;
-}
-#jollof{
-    margin-left: 100px;
-    height: 190px;
-    border-radius: 7px;
-}
-#friedRice{
-    height: 190px; width: 233px;
-    border-radius: 7px;
-}
-#stirFried{
-    height: 190px;  width: 233px;
-    border-radius: 7px; margin-top: -10px;
-}
-#jol{
-    font-size: 15px;  font-weight: bold;
-    margin-left: 100px; margin-top: -2px;
-    margin-bottom: -16px;
-}
-#am1{
-    font-size: 15px;  font-weight: bold;
-    margin-left: 100px; margin-bottom: -5px;
-}
-#stars5{
-    margin-left: 95px;  height: 25px;
-}
-#fried{
-    font-size: 15px;  font-weight: bold;
-    margin-left: 0px; margin-top: 0px;
-}
-#am2{
-    font-size: 15px;  font-weight: bold;
-    margin-left: 0px; margin-bottom: -5px; 
-    margin-top: -17px;
-}
-#stars50{
-    height: 25px;  margin-left: -5px;
-}
-#stir{
-    font-size: 15px;  font-weight: bold;
-    margin-top: 8px;
-}
-#am3{
-    font-size: 15px;  font-weight: bold;
-    margin-top: -16px; margin-bottom: -5px;
-}
-#stars4{
-    height: 25px;  margin-left: -5px;
-}
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
 
-/* Second Row */
-#foods-2{
-    display: flex;
-    gap: 120px; margin-top: 7px;
-}
-#semo{
-    margin-left: 100px;  width: 240px;
-    height: 190px;  border-radius: 7px;
-}
-#amala{
-    height: 190px; width: 233px;
-    border-radius: 7px; margin-left: 2px;
-}
-#eba{
-    height: 190px;  width: 233px;
-    border-radius: 7px; margin-left: -17px;
-}
-#sem{
-    font-size: 15px;  font-weight: bold;
-    margin-left: 100px; margin-top: 0px;
-    margin-bottom: -16px;
-}
-#am4{
-    font-size: 15px;  font-weight: bold;
-    margin-left: 100px; margin-bottom: -5px;
-}
-#stars40{
-    height: 25px;
-    margin-left: 100px;
-}
-#ama{
-    font-size: 15px;  font-weight: bold;
-    margin-top: 0px;
-    
-}
-#am5{
-    font-size: 15px;  font-weight: bold;
-    margin-top: -17px; margin-bottom: -6px;
-    
-}
-#stars400{
-    height: 25px;  margin-left: -3px;
-}
-#eb{
-    font-size: 15px;  font-weight: bold;
-    margin-top: 0px;  margin-left: -15px;
-}
-#am6{
-    font-size: 15px;  font-weight: bold;
-   margin-top: -18px;  margin-left: -15px;
-   margin-bottom: -6px;
-}
-#stars4000{
-    height: 25px;  margin-left: -19px;
-}
+    /* Navbar Section */
+    .house {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: white;
+      box-shadow: 0 2px 4px rgb(0 0 0 / 0.1);
+      display: flex;
+      align-items: center;
+      padding: 0.8rem 2rem;
+      z-index: 1000;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
 
-/* Third Row */
-#foods-3{
-    display: flex;
-    gap: 120px; margin-top: 7px;
-}
-#beans{
-    margin-left: 100px;  width: 240px;
-    height: 190px;  border-radius: 7px;
-}
-#oven{
-    height: 190px; width: 237px;
-    border-radius: 7px; margin-left: 2px;
-}
-#chicken{
-    height: 190px;  width: 233px;
-    border-radius: 7px; margin-left: -20px;
-}
-#bean{
-    font-size: 15px;  font-weight: bold;
-    margin-left: 100px; margin-top: 0px;
-    margin-bottom: -16px;
-}
-#am7{
-    font-size: 15px;  font-weight: bold;
-    margin-left: 100px; margin-bottom: -5px;
-}
-#stars40000{
-    height: 25px;  margin-left: 100px;
-}
-#bbq{
-    font-size: 15px;  font-weight: bold;
-    margin-left: 2px; margin-top: 0px;
-    margin-bottom: -16px;
-}
-#am8{
-    font-size: 15px;  font-weight: bold;
-    margin-left: 2px; margin-bottom: -5px;
-}
-#stars41{
-    height: 25px;  margin-left: -3px;
-}
-#crunch{
-    font-size: 15px;  font-weight: bold;
-    margin-left: -20px; margin-top: 0px;
-    margin-bottom: -16px;
-}
-#am9{
-    font-size: 15px;  font-weight: bold;
-    margin-left: -20px; margin-bottom: -5px;
-}
-#stars401{
-    height: 25px;  margin-left: -22px;
-}
+    .left {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
 
-/* Fourth Row */
-#foods-4{
-    display: flex;
-    gap: 120px; margin-top: 7px;
-}
-#egusi{
-    margin-left: 100px;  width: 240px;
-    height: 190px;  border-radius: 7px;
-}
-#catfish{
-    height: 190px; width: 237px;
-    border-radius: 7px; margin-left: 2px;
-}
-#plantain{
-    height: 190px;  width: 233px;
-    border-radius: 7px; margin-left: 18px;
-}
-#yam{
-    font-size: 15px;  font-weight: bold;
-    margin-left: 100px; margin-top: 0px;
-    margin-bottom: -16px;
-}
-#am10{
-    font-size: 15px;  font-weight: bold;
-    margin-left: 100px; margin-bottom: -5px;
-}
-#stars402{
-    height: 25px;  margin-left: 100px;
-}
-#cat{
-    font-size: 15px;  font-weight: bold;
-    margin-top: 0px;  margin-bottom: -16px;
-}
-#am11{
-    font-size: 15px;  font-weight: bold;
-    margin-bottom: -5px;
-}
-#stars411{
-    height: 25px;  margin-left: -4px;
-}
-#plant{
-    font-size: 15px;  font-weight: bold;
-    margin-top: 0px; margin-left: 18px;
-    margin-bottom: -16px;
-}
-#am12{
-    font-size: 15px;  font-weight: bold;
-    margin-bottom: -5px;  margin-left: 18px;
-}
-#stars40001{
-    height: 25px;  margin-left: 12px;
-}
+    #img0 {
+      width: 36px; /* ~0.9cm */
+      height: 40px; /* ~1cm */
+      object-fit: contain;
+    }
 
-/* Fifth Row */
-#foods-5{
-    display: flex;
-    gap: 120px; margin-top: 7px;
-}
-#ymg{
-    margin-left: 100px;  height: 190px; 
-    width: 240px;  border-radius: 7px;
-}
-#shawarma{
-    height: 190px; width: 237px;
-    border-radius: 7px; margin-left: 2px;
-}
-#porridge{
-    height: 190px;  width: 233px;
-    border-radius: 7px; margin-left: 18px;
-}
-#egg{
-    font-size: 15px;  font-weight: bold;
-    margin-left: 100px; margin-top: 0px;
-    margin-bottom: -16px;
-}
-#am13{
-    font-size: 15px;  font-weight: bold;
-    margin-left: 100px; margin-bottom: -5px;
-}
-#stars4002{
-    height: 25px;  margin-left: 100px;
-}
-#sha{
-    font-size: 15px;  font-weight: bold;
-    margin-top: 0px; margin-left: 3px;
-    margin-bottom: -16px;
-}
-#am14{
-    font-size: 15px;  font-weight: bold;
-    margin-bottom: -5px;  margin-left: 3px;
-}
-#stars40011{
-    height: 25px;  margin-left: -3px;
-}
-#por{
-    font-size: 15px;  font-weight: bold;
-    margin-top: 0px; margin-left: 20px;
-    margin-bottom: -16px;
-}
-#am15{
-    font-size: 15px;  font-weight: bold;
-    margin-bottom: -5px;  margin-left: 20px;
-}
-#stars40101{
-    height: 25px;  margin-left: 17px;
-}
-.footer{
-    margin-bottom: 30px;  margin-top: 50px;
-    height: auto;  font-weight: 500;
-    background-color: whitesmoke;
-    width: 1156px; margin-left: -7px;
-    margin-right: -7px;  padding-left: 12px;
-    color:  rgb(32, 32, 59);
-}
-   </style>
+    #namie {
+      font-family: 'Playball', cursive;
+      font-weight: bolder;
+      font-size: 1.6rem;
+      color: rgb(32, 32, 59);
+      letter-spacing: 2px;
+      user-select: none;
+    }
+
+    .navbar {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      flex-grow: 1;
+      justify-content: flex-end;
+    }
+
+    .navbar a {
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 0.3rem 0.8rem;
+      border-radius: 4px;
+      color: rgb(32, 32, 59);
+      transition: background-color 0.3s ease;
+    }
+
+    .navbar a:hover,
+    .navbar a.active {
+      background-color: rgba(255, 183, 1, 0.38);
+    }
+
+    /* Use active class on current page link instead of many IDs */
+    .navbar a.active {
+      background-color: rgba(255, 183, 1, 0.38);
+    }
+
+    /* Responsive Navbar */
+    @media (max-width: 576px) {
+      .house {
+        justify-content: center;
+        gap: 1rem;
+      }
+      .navbar {
+        justify-content: center;
+        gap: 1rem;
+      }
+    }
+
+    /* Hero Image */
+    #img2 {
+      display: block;
+      max-width: 100%;
+      height: auto;
+      margin: 100px auto 30px; /* Give space for fixed navbar */
+      border-radius: 7px;
+    }
+
+    /* Header Text Section */
+    .checc {
+      text-align: center;
+      background: white;
+      margin-bottom: 30px;
+      padding: 0 1rem;
+    }
+
+    #oum {
+      font-family: 'Poppins', sans-serif;
+      font-weight: lighter;
+      font-size: 6rem;
+      color: rgba(135, 135, 135, 0.14);
+      margin-bottom: -10px;
+      user-select: none;
+    }
+
+    #chk {
+      font-weight: 600;
+      font-size: 1.3rem;
+      color: rgba(250, 180, 5, 0.8);
+      letter-spacing: 0.15em;
+    }
+
+    /* Menu grid container */
+    .menu-row {
+      display: flex;
+      gap: 2rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+      padding: 0 1rem;
+    }
+
+    /* Each menu item */
+    .menu-item {
+      max-width: 240px;
+      border-radius: 7px;
+      overflow: hidden;
+      text-align: center;
+      user-select: none;
+    }
+
+    .menu-item img {
+      width: 100%;
+      height: 190px;
+      object-fit: cover;
+      border-radius: 7px;
+    }
+
+    .menu-item p.title {
+      font-weight: 700;
+      font-size: 1rem;
+      margin: 0.4rem 0 0.1rem;
+      color: rgb(32, 32, 59);
+    }
+
+    .menu-item p.price {
+      font-weight: 700;
+      font-size: 0.9rem;
+      margin-bottom: 0.4rem;
+      color: rgb(32, 32, 59);
+    }
+
+    .menu-item img.stars {
+      height: 25px;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Footer */
+    .footer {
+      background-color: whitesmoke;
+      width: 100%;
+      max-width: 1156px;
+      margin: 50px auto 30px;
+      padding: 1rem 1rem;
+      color: rgb(32, 32, 59);
+      font-weight: 500;
+      text-align: center;
+      border-radius: 7px;
+      user-select: none;
+    }
+  </style>
 </head>
 <body>
-    <section id="house" class="house"  >
-        <div class="left" id="left">
-          <img src="/images/logo-removebg-preview.png" alt="" id="img0">
-          <h2 id="namie">Tomi's Kitchen</h2>
-        </div>
-      
-        <div class="navbar">
-            <a href="/" id="No1">Home</a>
-            <a href="/about" id="No2">About</a>
-            <a href="/contact" id="No3">Contacts</a>
-            <a href="/menu" id="No4">Our Menus</a>
-            <a href="/book" id="No5" >Book A Table</a>
-        </div>  </section> <br>
-<img src="/images/menu back.jpg" alt="" id="img2"> 
-<div class="checc">
-  <p id="oum">OUR MENUS</p>
-  <h3 id="chk">Check Out Some of Our Delicious Menus</h3>
-</div><br>
-
-<div id="foods-1">
-<div>
-<img src="/images/Jollof Rice gan.PNG" alt="" id="jollof">
-<p id="jol"> Jollof Rice and Chicken</p>
-<p id="am1">#4 000.00</p>
-<img src="/images/5 Stars.PNG" alt="" id="stars5">
-</div>
-
-<div>
-  <img src="/images/fried rice and chicken with colesaw.jpeg" alt="" id="friedRice">
- <p id="fried">Fried Rice and Chicken with Salad</p>
- <p id="am2">#4 000.00</p>
- <img src="/images/5 Stars.PNG" alt="" id="stars50">
-</div>
-
-<div>
-  <img src="/images/Stir-Fried-Spaghetti-with-Chicken gan.jpg" alt="" id="stirFried">
-<p id="stir">Stir-Fried Spaghetti with Chicken</p>
-<p id="am3">#3 000.00</p>
-<img src="/images/4 Stars.PNG" alt="" id="stars4">
-</div>
-</div><br>
-
-<div id="foods-2">
-<div>
-  <img src="/images/Semo and Efo riro.jpeg" alt="" id="semo">
-<p id="sem">Semo and Efo-Riro</p>
-<p id="am4">#3 000.00</p>
-<img src="/images/4 Stars.PNG" alt="" id="stars40">
-</div>
-
-<div>
-  <img src="/images/amala and gbegiri gan.jpg" alt=""  id="amala">
-<p id="ama">Amala and Gbegiri soup with Ewedu</p>
-<p id="am5">#4 000.00</p>
-<img src="/images/4 Stars.PNG" alt="" id="stars400">
-</div>
-
-<div>
-  <img src="/images/Eba and Okra gan.jpg" alt="" id="eba">
-<p id="eb">Eba and Okra Soup</p>
-<p id="am6">#4 000.00</p>
-<img src="/images/4 Stars.PNG" alt="" id="stars4000">
-</div>
-</div><br>
-
-<div id="foods-3">
-  <div>
-    <img src="/images/beans and plantain gan.png" alt="" id="beans">
-  <p id="bean">Beans and Plantain</p>
-  <p id="am7">#3 000.00</p>
-  <img src="/images/4 Stars.PNG" alt="" id="stars40000">
-  </div>
-  
-  <div>
-    <img src="/images/oven barbecue chicken gan.jpg" alt=""  id="oven">
-  <p id="bbq">Oven Barbecue Chicken</p>
-  <p id="am8">#2 500.00</p>
-  <img src="/images/4-half Stars.PNG" alt="" id="stars41">
-  </div>
-  
-  <div>
-    <img src="/images/crunchy chicken and chips gan.jpg" alt="" id="chicken">
-  <p id="crunch">Crunchy Chicken and Chips</p>
-  <p id="am9">#4 000.00</p>
-  <img src="/images/4 Stars.PNG" alt="" id="stars401">
-  </div>
-  </div><br>
-
-  <div id="foods-4">
-    <div>
-      <img src="/images/Egusi gan.jpg" alt="" id="egusi">
-    <p id="yam">Pounded Yam with Melon Soup</p>
-    <p id="am10">#3 500.00</p>
-    <img src="/images/4 Stars.PNG" alt="" id="stars402">
+  <section class="house">
+    <div class="left">
+      <img src="/images/logo-removebg-preview.png" alt="Tomi's Kitchen Logo" id="img0" />
+      <h2 id="namie">Tomi's Kitchen</h2>
     </div>
-    
-    <div>
-      <img src="/images/catfish peppersoup gan.jpg" alt=""  id="catfish">
-    <p id="cat">Catfish Peppersoup</p>
-    <p id="am11">#2 500.00</p>
-    <img src="/images/4-half Stars.PNG" alt="" id="stars411">
-    </div>
-    
-    <div>
-      <img src="/images/catfish and plantain gan.jpg" alt="" id="plantain">
-    <p id="plant">Plantain and Catfish Peppersoup</p>
-    <p id="am12">#4 000.00</p>
-    <img src="/images/4-half Stars.PNG" alt="" id="stars40001">
-    </div>
-    </div><br>
 
-    <div id="foods-5">
-      <div>
-        <img src="/images/yam and egg.jpeg" alt="" id="ymg">
-      <p id="egg">Yam with Fried Egg</p>
-      <p id="am13">#2 000.00</p>
-      <img src="/images/4 Stars.PNG" alt="" id="stars4002">
-      </div>
-      
-      <div>
-        <img src="/images/Shawarma.jpg" alt=""  id="shawarma">
-      <p id="sha">Shawarma</p>
-      <p id="am14">#2 500.00</p>
-      <img src="/images/4-half Stars.PNG" alt="" id="stars40011">
-      </div>
-      
-      <div>
-        <img src="/images/yam porridge gan.jpg" alt="" id="porridge">
-      <p id="por">Yam Porridge</p>
-      <p id="am15">#2 500.00</p>
-      <img src="/images/4-half Stars.PNG" alt="" id="stars40101">
-      </div>
-      </div>
-      <div class="footer">
-       <footer>
-           <p>&copy; <span id="year"></span> Tomi's Kitchen</p>
-           <p>All rights reserved.</p>
-         </footer>
-       </div>
-       <script>
-        const date = new Date;
-        document.getElementById("year").innerText = date.getFullYear();
-       </script>
-</body>
-</html>
+    <nav class="navbar">
+      <a href="/" id="No1">Home</a>
+      <a href="/about" id="No2">About</a>
+      <a href="/contact" id="No3">Contacts</a>
+      <a href="/menu" class="active" id="No4">Our Menus</a>
+      <a href="/book" id="No5">Book A Table</a>
+    </nav>
+  </section>
 
+  <img src="/images/menu back.jpg" alt="Menu Background" id="img2" />
+
+  <div class="checc">
+    <p id="oum">OUR MENUS</p>
+    <h3 id="chk">Check Out Some of Our Delicious Menus</h3>
+  </div>
+
+  <!-- Menu Rows -->
+
+  <div class="menu-row">
+    <div class="menu-item">
+      <img src="/images/Jollof Rice gan.PNG" alt="Jollof Rice and Chicken" />
+      <p class="title">Jollof Rice and Chicken</p>
+      <p class="price">#4,000.00</p>
+      <img src="/images/5 Stars.PNG" alt="5 star rating" class="stars" />
+    </div>
+
+    <div class="menu-item">
+      <img src="/images/fried rice and chicken with colesaw.jpeg" alt="Fried Rice and Chicken with Salad" />
+      <p class="title">Fried Rice and Chicken with Salad</p>
+      <p class="price">#4,000.00</p>
+      <img src="/images/5 Stars.PNG" alt="5 star rating" class="stars" />
+    </div>
+
+    <div class="menu-item">
+      <img src="/images/Stir-Fried-Spaghetti-with-Chicken gan.jpg" alt="Stir-Fried Spaghetti with Chicken" />
+      <p class="title">Stir-Fried Spaghetti with Chicken</p>
+      <p class="price">#3,000.00</p>
+      <img src="/images/4 Stars.PNG" alt="4 star rating" class="stars" />
+    </div>
+  </div>
+
+<div class="menu-row"> 
+    <div class="menu-item">
+         <img src="/images/spaghetti with tomato sauce gan.jpg" alt="Spaghetti with Tomato Sauce" /> 
+         <p class="title">Spaghetti with Tomato Sauce</p> 
+         <p class="price">#3,000.00</p> 
+         <img src="/images/5 Stars.PNG" alt="5 star rating" class="stars" />
+         </div>
+
+<div class="menu-item">
+  <img src="/images/Indomie and Egg.jpg" alt="Indomie and Egg" />
+  <p class="title">Indomie and Egg</p>
+  <p class="price">#2,000.00</p>
+  <img src="/images/5 Stars.PNG" alt="5 star rating" class="stars" />
+</div>
+
+<div class="menu-item">
+  <img src="/images/fish with salad.jpg" alt="Fish with Salad" />
+  <p class="title">Fish with Salad</p>
+  <p class="price">#4,000.00</p>
+  <img src="/images/4 Stars.PNG" alt="4 star rating" class="stars" />
+</div>
+
+
+</div> 
+<footer class="footer">
+     &copy; <%= new Date().getFullYear() %> Tomi's Kitchen. All rights reserved. 
+</footer>
+ </body> 
+</html> 
